@@ -544,7 +544,7 @@ public class spinnerFunciont_SettingsMenuStaffAssing extends Fragment implements
         if (cur_data.getCount()>0 ) {
             cur_data.moveToFirst();
             result =  cur_data.getString(0);
-        } else {result =  "PP";}
+        } else {result =  "Not found subject";}
         cur_data.close();
         dbSET.close();
         cnSET.close();
