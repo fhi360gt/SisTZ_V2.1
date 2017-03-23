@@ -77,7 +77,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public Configuration config = new Configuration();
     TextView tv_baseline, tv_dailyclassroom, tv_finance, tv_reports;
     public static Integer language=1;
-//este es un comentario para prueba de github
+//este es un comentario para prueba de github OK
     //String languageToLoad="en";
     //public Integer language;
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS=124;
