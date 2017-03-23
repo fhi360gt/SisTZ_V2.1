@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:weightSum="1"
+            android:gravity="top"
+            android:background="@drawable/save_line">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/tv_groupIndicator"
+                android:textColor="#ffffff"
+                android:textSize="22dp"
+                android:text="@string/str_s_tv2"
+                android:gravity="center_vertical|center_horizontal"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_weight=".95" />
+
+            <LinearLayout
+                android:layout_width="218dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                android:paddingBottom="1.8dp"
+                android:background="@drawable/save_line"
+                android:gravity="right">
+                <View
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight=".12"/>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/btn_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+
+                    android:layout_gravity="bottom|end"
+
+                    android:src="@drawable/save2"
+                    app:backgroundTint="#a0a0a0" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:id="@+id/fl_part1"
+            android:layout_weight=".345">
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="13dp">
+
+                <!--************* PART 1 ************-->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".345"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                    <View
+                        android:layout_height="60dp"
+                        android:layout_width="match_parent" />
+                    <!-- 2. NAME-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_s_tv21"
+                        android:id="@+id/textView2"
+                        android:textSize="25dp"
+                        android:textColor="#c4c4c4"
+                        android:textStyle="bold"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="50dp" />
+                    <TextView
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:id="@+id/et_col1"
+                        android:singleLine="false"
+                        android:background="@drawable/get_collect"
+                        android:textSize="30dp"
+                        android:paddingTop="10dp"
+                        android:password="true"
+                        android:inputType="textWebPassword"
+                        android:layout_marginLeft="100dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_s_tv22"
+                        android:id="@+id/textView9"
+                        android:textSize="25dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="50dp" />
+
+                    <EditText
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:id="@+id/et_col2"
+                        android:singleLine="false"
+                        android:background="@drawable/get_collect"
+                        android:textSize="30dp"
+                        android:paddingTop="10dp"
+                        android:layout_marginLeft="100dp"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_s_tv23"
+                        android:id="@+id/textView10"
+                        android:textSize="25dp"
+                        android:textColor="#c4c4c4"
+                        android:textStyle="bold"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="50dp"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:id="@+id/et_col3"
+                        android:singleLine="false"
+                        android:background="@drawable/get_collect"
+                        android:textSize="30dp"
+                        android:paddingTop="10dp"
+                        android:layout_marginLeft="100dp"
+                        android:inputType="none"
+                        android:visibility="invisible" />
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </FrameLayout>
+
+        // ****************** BUTTON SAVE ******************
+
+    </LinearLayout>
+</LinearLayout>
