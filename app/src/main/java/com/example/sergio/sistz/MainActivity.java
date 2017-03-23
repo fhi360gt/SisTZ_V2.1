@@ -752,6 +752,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 return true;
             }
         });
+        
         popup.show();
     }
 
