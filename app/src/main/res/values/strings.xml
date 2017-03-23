@@ -654,5 +654,6 @@
     <string name="str_g_msj13">Are you sure to do automatic promotion?</string>
     <string name="automatic_promotion">Automatic promotion finished successfully</string>
     <string name="not_connected_internet">Not connected internet</string>
+    <string name="str_g_therearenot_student">There are not students assigned or Teacher is not \"Class teacher\"</string>
 
 </resources>

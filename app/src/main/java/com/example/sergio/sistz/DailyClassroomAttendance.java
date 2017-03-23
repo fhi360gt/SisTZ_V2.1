@@ -376,7 +376,8 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
                 SimpleAdapter mSchedule = new SimpleAdapter(this, mylist, R.layout.row_list_assing,
                         new String[]{"code", "fullname"}, new int[]{R.id.txt1, R.id.txt2});
                 lv_attendance.setAdapter(mSchedule);
-                //Toast.makeText(getApplicationContext(), "NO hay alumnos asignados.... !!!!", Toast.LENGTH_SHORT).show();
+                toolsfncs.dialogAlertConfirm(this,getResources(),10);
+                //Toast.makeText(getApplicationContext(), "NO hay alumnos asignados o el maestro no es CLASS TEACHER.", Toast.LENGTH_SHORT).show();
                 save_reg.setVisibility(View.GONE);
             }
         }
@@ -501,7 +502,8 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
                 dbSET.insert("attendance", null, reg);
             //} else {} //dbSET.update("_sa", reg, sqlcondition, null);}
         }
-        Toast.makeText(this, "The information has been updated!!!", Toast.LENGTH_SHORT).show();
+        toolsfncs.dialogAlertConfirm(this,getResources(),9);
+        //Toast.makeText(this, "The information has been updated!!!", Toast.LENGTH_SHORT).show();
         sql = sql + ts_present + delimit + ts_absence + delimit + _IU;
         _IU = "U";
         try {
