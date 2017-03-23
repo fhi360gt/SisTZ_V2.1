@@ -399,6 +399,7 @@ public class DailyClassroomEvaluation extends Activity implements AdapterView.On
                 SimpleAdapter mSchedule = new SimpleAdapter(this, mylist, R.layout.row_list_assing,
                         new String[]{"code", "fullname", "note"}, new int[]{R.id.txt1, R.id.txt2, R.id.txt3});
                 lv_attendance.setAdapter(mSchedule);
+                toolsfncs.dialogAlertConfirm(this,getResources(),10);
                 //Toast.makeText(getApplicationContext(), "NO hay alumnos asignados.... !!!!", Toast.LENGTH_SHORT).show();
                 save_reg.setVisibility(View.GONE);
             }
@@ -474,7 +475,7 @@ public class DailyClassroomEvaluation extends Activity implements AdapterView.On
             dbSET.insert("evaluation", null, reg);  ;
             //} else {} //dbSET.update("_sa", reg, sqlcondition, null);}
         }
-        toolsfncs.dialogAlertConfirm(this,getResources(),9);
+        toolsfncs.dialogAlertConfirm(this,getResources(),10);
         //Toast.makeText(this, "The information has been updated!!!", Toast.LENGTH_SHORT).show();
         //sql = sql + ts_present + delimit + ts_absence + delimit + _IU;
         if (n > 0 & nota >0) {totall = nota / n;}

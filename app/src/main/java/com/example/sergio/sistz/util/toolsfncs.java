@@ -47,6 +47,7 @@ public class toolsfncs extends Activity{
         if (v == 7){dialogo1.setMessage(resources.getString(R.string.synchronizing));} // You have made a WEB restore.
         if (v == 8){dialogo1.setMessage(resources.getString(R.string.not_connected_internet));} // You have made a WEB restore.
         if (v == 9){dialogo1.setMessage(resources.getString(R.string.str_bl_msj5));} // The information has been update...
+        if (v == 10){dialogo1.setMessage(resources.getString(R.string.str_g_therearenot_student));} // The information has been update...
 
         dialogo1.setCancelable(false);
         dialogo1.setPositiveButton(resources.getString(R.string.str_g_ok), new DialogInterface.OnClickListener() {

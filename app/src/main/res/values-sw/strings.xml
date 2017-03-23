@@ -567,5 +567,9 @@
     <string name="action_settings11">Moja kwa moja kukuza</string>
     <string name="not_connected_internet">Si kushikamana biashara</string>
     <string name="str_g_notification">Taarifa</string>
+    <string name="str_t_zn">Hisabati</string>
+    <string name="str_t_zq">Nyingine</string>
+    <string name="str_w_alredyinfo">Hii kificho EMIS shule tayari ina maelezo</string>
+    <string name="str_g_therearenot_student">Kuna si wanafunzi kupewa au Mwalimu si \"Hatari mwalimu\"</string>
 
 </resources>

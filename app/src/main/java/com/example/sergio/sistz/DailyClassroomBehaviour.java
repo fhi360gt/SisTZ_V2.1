@@ -351,6 +351,7 @@ public class DailyClassroomBehaviour extends Activity implements AdapterView.OnI
                 SimpleAdapter mSchedule = new SimpleAdapter(this, mylist, R.layout.row_list_assing_behaviour,
                         new String[]{"code", "fullname"}, new int[]{R.id.txt1, R.id.txt2});
                 lv_attendance.setAdapter(mSchedule);
+                toolsfncs.dialogAlertConfirm(this,getResources(),10);
                 //Toast.makeText(getApplicationContext(), "NO hay alumnos asignados.... !!!!", Toast.LENGTH_SHORT).show();
                 save_reg.setVisibility(View.GONE);
             }
