@@ -50,6 +50,7 @@ public class toolsfncs extends Activity{
         if (v == 10){dialogo1.setMessage(resources.getString(R.string.str_g_therearenot_student));} // The information has been update...
 
         dialogo1.setCancelable(false);
+
         dialogo1.setPositiveButton(resources.getString(R.string.str_g_ok), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
                 confirm();
@@ -59,8 +60,19 @@ public class toolsfncs extends Activity{
 //                aceptar();
 //            }
         });
+        if (v == 11) {
+            dialogo1.setNegativeButton(resources.getString(R.string.str_g_cancel), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo1, int id) {
+                    cancel();
+                }
+            });
+        }
+
 
         dialogo1.show();
+    }
+
+    private static void cancel() {
     }
 
     private static void confirm() {

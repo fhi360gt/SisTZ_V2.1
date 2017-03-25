@@ -987,12 +987,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 pd.setIndeterminate(true);
             }
         });
-//        dialogo1.setNegativeButton(getResources().getString(R.string.str_g_cancel), new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialogo1, int id) { // Cancel
-//                //aceptar();
-//                cancelar();
-//            }
-//        });
+        dialogo1.setNegativeButton(getResources().getString(R.string.str_g_cancel), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) { // Cancel
+                //aceptar()1
+                cancelar();
+            }
+        });
         dialogo1.show();
     }
     public void aceptar() {}
