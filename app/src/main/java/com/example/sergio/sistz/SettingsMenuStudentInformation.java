@@ -62,7 +62,7 @@ public class SettingsMenuStudentInformation extends Fragment implements View.OnC
     CheckBox _col14, _col15, _col16, _col17, _col18, _col19, _col20, _col23, _col24, _col25, _col26, _col27, _col28, _col29, _col30, _col31;
     DatePicker _col4, _col21;
     ListView lv_list;
-    String _IU="U";
+    String _IU="U", Dedo="0";
     FloatingActionButton add_reg, save_reg, erase_reg;
     String code;
     //    private DatePickerDialog fromDatePickerDialog;
@@ -287,7 +287,10 @@ public class SettingsMenuStudentInformation extends Fragment implements View.OnC
             if (!isVisibleToUser) {
                 //Log.d("MyFragment", "Not visible anymore.  Stopping audio.");
                 //Toast.makeText(getContext(), "AHORA GRABA INFORMACION..... ", Toast.LENGTH_SHORT).show();
+                Dedo = "1";
+                aceptar(1);
                 if (ReportS.S_report_enable != "1") {aceptar(1);}
+                Dedo = "0";
                 // TODO stop audio playback
             }
         }
@@ -635,8 +638,9 @@ public class SettingsMenuStudentInformation extends Fragment implements View.OnC
                 // ********************* Fill TABLE d
                 if (_IU=="I") {dbSET.insert("student", null, reg); _IU="U";}
                 else {dbSET.update("student", reg, "_id=" + _col0.getText().toString(), null);}
-
-                toolsfncs.dialogAlertConfirm(getContext(),getResources(),9);
+                if (Dedo == "0") {
+                    toolsfncs.dialogAlertConfirm(getContext(),getResources(),9);
+                }
                 //Toast.makeText(getContext(), getResources().getString(R.string.str_bl_msj5), Toast.LENGTH_SHORT).show(); // "The information has been updated!!!"
                 _col0.setVisibility(View.GONE);
                 tv_col0.setVisibility(View.VISIBLE);
