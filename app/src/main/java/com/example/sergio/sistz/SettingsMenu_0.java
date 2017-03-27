@@ -134,22 +134,23 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
 //                Bitacora.put("sis_sql","UPDATE a SET a2='" + et_school_name.getText().toString() + "'%U");
 //                dbSET.insert("sisupdate", null, Bitacora);
                 String newBiracora ="sis_sql-> "+"UPDATE a SET a2=" + et_school_name.getText().toString() + "%U";
-                Toast.makeText(getApplicationContext(), newBiracora, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), newBiracora, Toast.LENGTH_LONG).show();
                 //logFunctions(currentDateandTime, "SettingMenu_0", Bitacora.toString());
                 logFunctions(currentDateandTime, "SettingMenu_0", newBiracora );
 
                 // ********************* Fill TABLE d
                 if (_IU=="I") {
                     dbSET.insert("ms_0", null, reg); _IU="U";
-                    Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
                 } else {
                     //regExist = (getEMIS_code_form_a());
                     if (et_emis.getText().toString().equals(getEMIS_code_form_a()) || getEMIS_code_form_a() ==  "" ) {
                         dbSET.update("ms_0", reg, "_id=1", null);
-                        Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
                     } else {Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_w_alredyinfo) +et_emis.getText().toString() + " = "+ getEMIS_code_form_a(), Toast.LENGTH_SHORT).show();} // "Ya ingreso información con ese código..."
                 }
-                finish();
+                toolsfncs.dialogAlertConfirm(this,getResources(),9);
+                //finish();
             }catch (Exception e) {
                 Toast.makeText(getApplicationContext(),"Debe ingresar al menos un registro... !!! ",Toast.LENGTH_SHORT).show();
             }

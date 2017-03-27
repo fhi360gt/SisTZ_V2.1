@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sergio.sistz.mysql.Conexion;
+import com.example.sergio.sistz.util.toolsfncs;
 
 import java.io.File;
 
@@ -91,7 +92,8 @@ public class login extends Activity implements View.OnClickListener{
             try {
                 if (_IU=="I") {dbSET.insert("login", null, reg); _IU="U";}
                 else {dbSET.update("login", reg, "_id=1", null);}
-                Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
+                toolsfncs.dialogAlertConfirm(this,getResources(),9);
             }catch (Exception e) {
                 Toast.makeText(getApplicationContext(),"Debe ingresar al menos un registro... !!! ",Toast.LENGTH_SHORT).show();
             }
@@ -108,7 +110,7 @@ public class login extends Activity implements View.OnClickListener{
             case R.id.btn_save:
                 //dialogAlert(1);
                 updateRecord();
-                finish();
+                //finish();
                 break;
         }
 

@@ -2460,7 +2460,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             dbSETpromotion.execSQL("update _sa set level = 1 and grade = 1 where level=3 and grade = 3 and year_ta ="+ school_year +")");
 
         }catch (Exception e) {}
-        Toast.makeText(getApplication(), getResources().getString(R.string.automatic_promotion), Toast.LENGTH_SHORT).show();
+        toolsfncs.dialogAlertConfirm(this,getResources(),11);
+        //Toast.makeText(getApplication(), getResources().getString(R.string.automatic_promotion), Toast.LENGTH_SHORT).show();
         dbSETpromotion.close();
         cnSETpromotion.close();
     }
