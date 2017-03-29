@@ -303,9 +303,14 @@ public class ReportA extends Activity implements View.OnClickListener, AdapterVi
 //        Cursor cur_data = dbSET.rawQuery("SELECT a.date, a.present, b.absence  FROM \n" +
 //                " ( SELECT Date(date) AS date, SUM(absence) AS present  FROM attendance WHERE absence <>'' " + sql + " GROUP BY Date(date)   ) as a\n" +
 //                " LEFT JOIN(SELECT Date(date) as date, COUNT(*) as absence FROM attendance WHERE reason <> ''  " + sql + " GROUP BY Date(date)  ) as b ON (a.date=b.date)", null);
-        Cursor cur_data = dbSET.rawQuery("SELECT a.date, a.present, b.absence  FROM \n" +
+        String sql1 = "SELECT a.date, a.present, b.absence  FROM \n" +
                 " ( SELECT Date(date) AS date, SUM(absence) AS present  FROM attendance WHERE absence = '1' AND strftime('%Y',date)='" + school_year + "' "  + sql + " GROUP BY Date(date)  ) as a\n" +
-                " LEFT JOIN(SELECT Date(date) as date, COUNT(*) as absence FROM attendance WHERE absence = ''  AND strftime('%Y',date)='" + school_year + "' "  + sql + " GROUP BY Date(date)  ) as b ON (a.date=b.date)", null);
+                " LEFT JOIN(SELECT Date(date) as date, COUNT(*) as absence FROM attendance WHERE absence = ''  AND strftime('%Y',date)='" + school_year + "' "  + sql + " GROUP BY Date(date)  ) as b ON (a.date=b.date)";
+        String sql21 = "SELECT a.date, a.total, b.absence FROM  \n" +
+                "( SELECT \"1\" AS _id, Date(date) AS date, sum(absence) as total  FROM attendance WHERE  strftime('%Y',date)='" + school_year + "' "  + sql + "   GROUP BY Date(date)  ) as a\n" +
+                " LEFT JOIN (SELECT \"1\" AS _id, Date(date) as date, count(reason) as absence FROM attendance WHERE reason<>'' AND strftime('%Y',date)='" + school_year + "' "  + sql + " GROUP BY Date(date) ) as b ON (a._id=b._id and a.date=b.date )";
+
+        Cursor cur_data = dbSET.rawQuery(sql21, null);
 
         if (cur_data.moveToFirst()) {
             do {

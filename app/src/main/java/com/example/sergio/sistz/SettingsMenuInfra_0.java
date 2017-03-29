@@ -970,7 +970,8 @@ public class SettingsMenuInfra_0 extends Fragment implements View.OnClickListene
         String spinnerUpdate="";
         Conexion cnGEO = new Conexion(getContext(),STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
         SQLiteDatabase dbGEO = cnGEO.getWritableDatabase();
-        Cursor cur_g = dbGEO.rawQuery("SELECT  g3 FROM set_geo_codes WHERE name1='" + v1 + "'  AND name2='" + v2 + "'  AND name3='" + v3+ "' GROUP BY g3", null);
+
+        Cursor cur_g = dbGEO.rawQuery("SELECT  g3 FROM set_geo_codes WHERE name1='" + v1.replace("'","''") + "'  AND name2='" + v2.replace("'","''") + "'  AND name3='" + v3.replace("'","''")+ "' GROUP BY g3", null);
         cur_g.moveToFirst();
         spinnerUpdate = cur_g.getString(0);
         cur_g.close();
