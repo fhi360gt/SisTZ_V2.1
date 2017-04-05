@@ -80,7 +80,8 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
 
     // **************** Load DATA *************************
     public void loadRecord() {
-        toolsfncs.dialogAlertConfirm(this,getResources(),13);
+        //toolsfncs.dialogAlertConfirm(this,getResources(),13);
+        dialogAlert(2);
         et_emis.setText("");
         et_school_name.setText("");
         Conexion cnSET = new Conexion(getApplicationContext(),STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
@@ -234,9 +235,10 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
     public void dialogAlert(int v){
         //Toast.makeText(getContext(),String.valueOf(v) ,Toast.LENGTH_SHORT).show();
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-        dialogo1.setTitle(getResources().getString(R.string.str_bl_msj1));
+
         if (v == 1) {
-            dialogo1.setMessage(getResources().getString(R.string.str_g_change_emis_code));
+            dialogo1.setTitle(getResources().getString(R.string.str_bl_msj1));
+            dialogo1.setMessage(getResources().getString(R.string.str_g_change_emis_code_confirm));
             dialogo1.setCancelable(false);
             dialogo1.setPositiveButton(getResources().getString(R.string.str_bl_msj3), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialogo1, int id) {
@@ -250,9 +252,29 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
             });
             dialogo1.show();
         }
+        if (v == 2) {
+            dialogo1.setTitle(getResources().getString(R.string.str_g_warning));
+            dialogo1.setMessage(getResources().getString(R.string.str_g_change_emis_code));
+            dialogo1.setCancelable(false);
+            dialogo1.setPositiveButton(getResources().getString(R.string.str_bl_msj3), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo1, int id) {
+                    aceptar2();
+                }
+            });
+            dialogo1.setNegativeButton(getResources().getString(R.string.str_bl_msj4), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo1, int id) {
+                    cancelar2();
+                }
+            });
+            dialogo1.show();
+        }
+
     }
     public void aceptar() { updateRecord();  }
     public void cancelar() {finish(); }
+
+    public void aceptar2() {  }
+    public void cancelar2() {finish(); }
     // *********** END Control Alerts ************************
 
     public String getEMIS_code(){

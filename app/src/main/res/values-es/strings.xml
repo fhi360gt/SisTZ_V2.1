@@ -572,5 +572,6 @@
     <string name="synchronizing">El Sistema de Información Escolar se ha actualizado para incluir nuevas regiones, distritos y / o salas. La base de datos geográfica se está actualizando ahora en su tableta. Esto puede tardar hasta 30 segundos y la pantalla puede quedar en blanco. Pulse OK para continuar.</string>
     <string name="str_g_therearenot_student">No hay estudiantes asignados o el Maestro no es \"Maestro de Clase\"</string>
     <string name="str_g_enter_information">Debe introducir información válida</string>
-    <string name="str_g_change_emis_code">Usted cambiará la información básica de la escuela, es su responsabilidad, y esto afectará el sistema de colección completo.</string>
+    <string name="str_g_change_emis_code">Este módulo le permite cambiar la información estructural de SIS. No introducir cambios a menos que se aconseje estrictamente. Presione Confirmar si desea continuar o presione Cancelar para regresar al menú principal.</string>
+    <string name="str_g_change_emis_code_confirm">Estás a punto de guardar los cambios. Esto afectará a la estructura de la base de datos. Pulse Cancelar si no está seguro, de otra forma pulse Confirmar para guardar los cambios.</string>
 </resources>
