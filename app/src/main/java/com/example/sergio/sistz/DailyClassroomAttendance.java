@@ -326,12 +326,14 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
         subject_selected = subject;
         Conexion cnSET_Attendance = new Conexion(this,STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
         SQLiteDatabase dbSET_Attendance = cnSET_Attendance.getReadableDatabase();
-        Cursor cur_data_attendance = dbSET_Attendance.rawQuery("SELECT emis, t_id, subject, s_id, absence, reason, date FROM attendance  WHERE emis="+getEMIS_code()+" AND t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance+"'" + " AND date=" + school_year, null);
+        //Cursor cur_data_attendance = dbSET_Attendance.rawQuery("SELECT emis, t_id, subject, s_id, absence, reason, date FROM attendance  WHERE emis="+getEMIS_code()+" AND t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance+"'" + " AND date=" + school_year, null);
+        Cursor cur_data_attendance = dbSET_Attendance.rawQuery("SELECT emis, t_id, subject, s_id, absence, reason, date FROM attendance  WHERE  t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance+"'" + " AND date=" + school_year, null);
         //ts_present = cur_data_attendance.getCount();
         if (cur_data_attendance.getCount()>0) {_IU = "U";
          //  Toast.makeText(this,  "  List already exists!!!! ", Toast.LENGTH_LONG).show();
         } else {ts_present = cur_data_attendance.getCount(); _IU = "I";}
-            sqlcondition = " emis="+getEMIS_code()+" AND t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance +"'" + " AND date=" + school_year;
+            //sqlcondition = " emis="+getEMIS_code()+" AND t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance +"'" + " AND date=" + school_year;
+            sqlcondition = " t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance +"'" + " AND date=" + school_year;
         if (code != "") {
             //final String deleteCode = code;
             ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();

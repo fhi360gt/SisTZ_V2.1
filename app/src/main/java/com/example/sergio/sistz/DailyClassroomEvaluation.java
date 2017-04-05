@@ -475,7 +475,7 @@ public class DailyClassroomEvaluation extends Activity implements AdapterView.On
             dbSET.insert("evaluation", null, reg);  ;
             //} else {} //dbSET.update("_sa", reg, sqlcondition, null);}
         }
-        toolsfncs.dialogAlertConfirm(this,getResources(),10);
+        toolsfncs.dialogAlertConfirm(this,getResources(),9);
         //Toast.makeText(this, "The information has been updated!!!", Toast.LENGTH_SHORT).show();
         //sql = sql + ts_present + delimit + ts_absence + delimit + _IU;
         if (n > 0 & nota >0) {totall = nota / n;}

@@ -551,8 +551,10 @@ public class SettingsMenuInfra_0 extends Fragment implements View.OnClickListene
         Cursor cur_data = dbSET.rawQuery("SELECT _id, a1, a2, a3a, a3b, a3c, a3d, a4a, a4b, a5a, a5b, b1, b3, b4, lat, lon FROM a WHERE _id=1",null);
         cur_data.moveToFirst();
         if (cur_data.getCount() > 0) {
-            EMIS_code = cur_data.getString(1);
-            _col1.setText(cur_data.getString(1));       // a1
+            //EMIS_code = cur_data.getString(1);
+            EMIS_code = getEMIS_code();
+           // _col1.setText(cur_data.getString(1));       // a1
+            _col1.setText(getEMIS_code());       // a1
             //_col2.setText(cur_data.getString(2));       // a2
             _col2.setText(getSchool_name());
             _col3 = cur_data.getString(3);            // a3a

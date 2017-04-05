@@ -571,5 +571,7 @@
     <string name="str_t_zq">Nyingine</string>
     <string name="str_w_alredyinfo">Hii kificho EMIS shule tayari ina maelezo</string>
     <string name="str_g_therearenot_student">Kuna si wanafunzi kupewa au Mwalimu si \"Hatari mwalimu\"</string>
+    <string name="str_g_enter_information">Lazima kuingiza habari halali.</string>
+    <string name="str_g_change_emis_code">Wewe kubadilisha maelezo ya msingi shule, ni wajibu wako, na hii itaathiri nzima mfumo ukusanyaji.</string>
 
 </resources>

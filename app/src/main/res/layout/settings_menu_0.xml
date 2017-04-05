@@ -100,16 +100,16 @@
                         android:weightSum="1">
 
                         <EditText
+                            android:id="@+id/et_emis"
                             android:layout_width="0dp"
                             android:layout_height="50dp"
-                            android:id="@+id/et_emis"
-                            android:background="@drawable/util_spinner"
-                            android:textStyle="bold"
-                            android:textSize="28dp"
-                            android:singleLine="false"
                             android:layout_weight=".5"
+                            android:background="@drawable/util_spinner"
+                            android:elevation="1dp"
                             android:inputType="number"
-                            android:digits="5" />
+                            android:singleLine="false"
+                            android:textSize="28dp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <TextView
@@ -131,15 +131,15 @@
                         android:weightSum="1" >
 
                         <EditText
+                            android:id="@+id/et_school_name"
                             android:layout_width="0dp"
                             android:layout_height="50dp"
-                            android:id="@+id/et_school_name"
-                            android:background="@drawable/util_spinner"
-                            android:textStyle="bold"
-                            android:textSize="28dp"
-                            android:singleLine="false"
                             android:layout_weight="1"
-                            android:inputType="textCapSentences" />
+                            android:background="@drawable/util_spinner"
+                            android:inputType="textCapSentences"
+                            android:singleLine="false"
+                            android:textSize="28dp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout

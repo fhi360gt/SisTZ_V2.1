@@ -80,6 +80,7 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
 
     // **************** Load DATA *************************
     public void loadRecord() {
+        toolsfncs.dialogAlertConfirm(this,getResources(),13);
         et_emis.setText("");
         et_school_name.setText("");
         Conexion cnSET = new Conexion(getApplicationContext(),STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
@@ -114,7 +115,7 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
         //if (!et_emis.getText().toString().isEmpty()  ) {  //        if (!et_emis.getText().toString().isEmpty()) {  //
         if ((!et_emis.getText().toString().isEmpty()) && (!et_emis.getText().toString().equals("0"))) {
             if (_IU == "I" ) {reg.put("_id",1);}
-            //reg.put("flag", _IU); sql = sql  + "ms_0;" + getEMIS_code() + delimit;
+            //reg.put("flag", _IU); sql = sql  + "ms_0;" + getEMIS_code() + delimit
             reg.put("flag", et_school_name.getText().toString());
             sql = sql  + "ms_0;" + et_emis.getText().toString() + delimit;
             reg.put("emis", et_emis.getText().toString());
@@ -133,26 +134,30 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
 //                ContentValues Bitacora = new ContentValues();
 //                Bitacora.put("sis_sql","UPDATE a SET a2='" + et_school_name.getText().toString() + "'%U");
 //                dbSET.insert("sisupdate", null, Bitacora);
-                String newBiracora ="sis_sql-> "+"UPDATE a SET a2=" + et_school_name.getText().toString() + "%U";
+
+                //String newBiracora ="sis_sql-> "+"UPDATE a SET a2=" + et_school_name.getText().toString() + "%U";
                 //Toast.makeText(getApplicationContext(), newBiracora, Toast.LENGTH_LONG).show();
                 //logFunctions(currentDateandTime, "SettingMenu_0", Bitacora.toString());
-                logFunctions(currentDateandTime, "SettingMenu_0", newBiracora );
+                //logFunctions(currentDateandTime, "SettingMenu_0", newBiracora );
 
                 // ********************* Fill TABLE d
-                if (_IU=="I") {
-                    dbSET.insert("ms_0", null, reg); _IU="U";
+                //if (_IU=="I") {
+                //    dbSET.insert("ms_0", null, reg); _IU="U";
                     //Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
-                } else {
+                //} else {
                     //regExist = (getEMIS_code_form_a());
-                    if (et_emis.getText().toString().equals(getEMIS_code_form_a()) || getEMIS_code_form_a() ==  "" ) {
+                //    if (et_emis.getText().toString().equals(getEMIS_code_form_a()) || getEMIS_code_form_a() ==  "" ) {
                         dbSET.update("ms_0", reg, "_id=1", null);
+                String sqlupdate = "UPDATE a SET a1='"+ et_emis.getText().toString()+"', a2='"+ et_school_name.getText().toString().replace("'","''")+"'";
+                        dbSET.execSQL(sqlupdate);
                         //Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
-                    } else {Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_w_alredyinfo) +et_emis.getText().toString() + " = "+ getEMIS_code_form_a(), Toast.LENGTH_SHORT).show();} // "Ya ingreso información con ese código..."
-                }
+                 //   } else {Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_w_alredyinfo) +et_emis.getText().toString() + " = "+ getEMIS_code_form_a(), Toast.LENGTH_SHORT).show();} // "Ya ingreso información con ese código..."
+                //}
                 toolsfncs.dialogAlertConfirm(this,getResources(),9);
                 //finish();
             }catch (Exception e) {
-                Toast.makeText(getApplicationContext(),"Debe ingresar al menos un registro... !!! ",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Debe ingresar al menos un registro... !!! ",Toast.LENGTH_SHORT).show();
+                toolsfncs.dialogAlertConfirm(this,getResources(),12);
             }
         } else {
             Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_w_a), Toast.LENGTH_SHORT).show(); // "Enter Scool EMIS Code ... !!! "
@@ -184,8 +189,8 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
 //                change_fl(fl_location);
 //                break;
             case R.id.btn_save:
-                //dialogAlert(1);
-                updateRecord();
+                dialogAlert(1);
+                //updateRecord();
                 break;
 //            case R.id.btn_exit:
 //                dialogAlert(2);
@@ -206,26 +211,47 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
     }
 
     // *********** Control Alerts ************************
+//    public void dialogAlert(int v){
+//        Toast.makeText(getApplicationContext(),String.valueOf(v) ,Toast.LENGTH_SHORT).show();
+//        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+//        dialogo1.setTitle("Important");
+//        if (v == 1){dialogo1.setMessage("Save and Exit !!!");}
+//        if (v == 2){dialogo1.setMessage("Are you sure to quit?");}
+//        dialogo1.setCancelable(false);
+//        dialogo1.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialogo1, int id) {
+//                aceptar();
+//            }
+//        });
+//        dialogo1.setNegativeButton("Confirm", new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialogo1, int id) {
+//                cancelar();
+//            }
+//        });
+//        dialogo1.show();
+//    }
+
     public void dialogAlert(int v){
-        Toast.makeText(getApplicationContext(),String.valueOf(v) ,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(),String.valueOf(v) ,Toast.LENGTH_SHORT).show();
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-        dialogo1.setTitle("Important");
-        if (v == 1){dialogo1.setMessage("Save and Exit !!!");}
-        if (v == 2){dialogo1.setMessage("Are you sure to quit?");}
-        dialogo1.setCancelable(false);
-        dialogo1.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo1, int id) {
-                aceptar();
-            }
-        });
-        dialogo1.setNegativeButton("Confirm", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo1, int id) {
-                cancelar();
-            }
-        });
-        dialogo1.show();
+        dialogo1.setTitle(getResources().getString(R.string.str_bl_msj1));
+        if (v == 1) {
+            dialogo1.setMessage(getResources().getString(R.string.str_g_change_emis_code));
+            dialogo1.setCancelable(false);
+            dialogo1.setPositiveButton(getResources().getString(R.string.str_bl_msj3), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo1, int id) {
+                    aceptar();
+                }
+            });
+            dialogo1.setNegativeButton(getResources().getString(R.string.str_bl_msj4), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo1, int id) {
+                    cancelar();
+                }
+            });
+            dialogo1.show();
+        }
     }
-    public void aceptar() {   }
+    public void aceptar() { updateRecord();  }
     public void cancelar() {finish(); }
     // *********** END Control Alerts ************************
 

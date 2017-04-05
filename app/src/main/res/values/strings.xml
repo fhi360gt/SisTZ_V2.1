@@ -655,5 +655,7 @@
     <string name="automatic_promotion">Automatic promotion finished successfully</string>
     <string name="not_connected_internet">Not connected internet</string>
     <string name="str_g_therearenot_student">There are not students assigned or Teacher is not \"Class teacher\"</string>
+    <string name="str_g_enter_information">You should enter valid information.</string>
+    <string name="str_g_change_emis_code">You will change basic school information, it is your responsibility, and this will affect the entire collection system.</string>
 
 </resources>

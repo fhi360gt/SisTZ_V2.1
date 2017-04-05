@@ -1262,11 +1262,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void new_set_geo_codes() {
+        String cod2031="";
         Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
         SQLiteDatabase dbSET = cnSET.getReadableDatabase();
         Cursor cur_data = dbSET.rawQuery("SELECT COUNT(*) FROM set_geo_codes", null);
+        Cursor cur_data2031 = dbSET.rawQuery("select g1, g2, g3 from set_geo_codes where g1='1' and g2='7' and g3='2031'", null);
+        if (cur_data2031.moveToFirst()) { cod2031 = cur_data2031.getString(2);}
         cur_data.moveToFirst();
-        if (!cur_data.getString(0).equals("1136")) {
+        if (!cur_data.getString(0).equals("1136") | !cod2031.equals("2031")) {
             dialogAlert_update_geo(7);
         }
         dbSET.execSQL("UPDATE set_geo_codes SET g2=2 WHERE name2=\"KASULU DC\"");
@@ -1455,7 +1458,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,11,'DODOMA','CHEMBA','MAKORONGO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,21,'DODOMA','CHEMBA','OVADA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,31,'DODOMA','CHEMBA','BABAYU')");
-        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,31,'DODOMA','CHEMBA','MSAADA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,41,'DODOMA','CHEMBA','KIMAHA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,51,'DODOMA','CHEMBA','CHURUKU')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,61,'DODOMA','CHEMBA','SONGOLO')");
@@ -1478,6 +1480,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,1022,'DODOMA','CHEMBA','LAHODA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,1023,'DODOMA','CHEMBA','SOYA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,1024,'DODOMA','CHEMBA','TUMBAKOSE')");
+        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,7,2031,'DODOMA','CHEMBA','MSAADA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,8,121,'DODOMA','KONDOA TC','SERYA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,8,133,'DODOMA','KONDOA TC','KILIMANI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(1,8,142,'DODOMA','KONDOA TC','CHEMCHEM')");
@@ -1552,7 +1555,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,131,'LINDI','NACHINGWEA','MKOKA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,141,'LINDI','NACHINGWEA','CHIOLA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,151,'LINDI','NACHINGWEA','MPIRUKA')");
-        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,151,'LINDI','NACHINGWEA','MTUA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,161,'LINDI','NACHINGWEA','NANGOWE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,171,'LINDI','NACHINGWEA','MKOTOKUYANA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,183,'LINDI','NACHINGWEA','NAIPANGA')");
@@ -1572,6 +1574,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,1011,'LINDI','NACHINGWEA','NANG''ONDO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,1012,'LINDI','NACHINGWEA','NGUNICHILE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,1013,'LINDI','NACHINGWEA','UGAWAJI')");
+        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,3,1151,'LINDI','NACHINGWEA','MTUA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,4,13,'LINDI','LIWALE','LIWALE MJINI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,4,21,'LINDI','LIWALE','MIHUMO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,4,31,'LINDI','LIWALE','NGONGOWELE')");
@@ -1605,7 +1608,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,111,'LINDI','RUANGWA','MNACHO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,131,'LINDI','RUANGWA','NAMBILANJE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,141,'LINDI','RUANGWA','CHUNYU')");
-        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,141,'LINDI','RUANGWA','MANDAWA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,151,'LINDI','RUANGWA','MANDARAWE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,163,'LINDI','RUANGWA','NACHINGWEA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,171,'LINDI','RUANGWA','MATAMBARALE')");
@@ -1614,6 +1616,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,201,'LINDI','RUANGWA','NANGANGA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,211,'LINDI','RUANGWA','CHINONGWE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,1016,'LINDI','RUANGWA','MBWEMKURU (MACHANG''ANJA)')");
+        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,5,1141,'LINDI','RUANGWA','MANDAWA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,6,32,'LINDI','LINDI URBAN','MIKUMBI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,6,52,'LINDI','LINDI URBAN','RAHALEO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(8,6,72,'LINDI','LINDI URBAN','MATOPENI')");
@@ -1653,7 +1656,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,221,'TABORA','IGUNGA','SIMBO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,241,'TABORA','IGUNGA','MWISI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,251,'TABORA','IGUNGA','CHABUTWA')");
-        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,251,'TABORA','IGUNGA','MWAMALA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,261,'TABORA','IGUNGA','SUNGWIZI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,1000,'TABORA','IGUNGA','IBOROGELO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,1001,'TABORA','IGUNGA','IGOWEKO')");
@@ -1665,6 +1667,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,1007,'TABORA','IGUNGA','TAMBALALE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,1008,'TABORA','IGUNGA','UGAKA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,1009,'TABORA','IGUNGA','USWAYA')");
+        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,2,1251,'TABORA','IGUNGA','MWAMALA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,3,11,'TABORA','UYUI','LUTENDE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,3,21,'TABORA','UYUI','KIZENGI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,3,31,'TABORA','UYUI','GOWEKO')");
@@ -1798,7 +1801,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,61,'TABORA','NZEGA DC','MIZIBAZIBA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,71,'TABORA','NZEGA DC','MILAMBO ITOBO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,81,'TABORA','NZEGA DC','MAGENGATI')");
-        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,81,'TABORA','NZEGA DC','MBUTU')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,91,'TABORA','NZEGA DC','NDALA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,111,'TABORA','NZEGA DC','WELA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,151,'TABORA','NZEGA DC','MUHUGI')");
@@ -1826,6 +1828,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,1041,'TABORA','NZEGA DC','MWANTUNDU')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,1042,'TABORA','NZEGA DC','MWASALA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,1043,'TABORA','NZEGA DC','UGEMBE')");
+        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,8,1081,'TABORA','NZEGA DC','MBUTU')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,9,121,'TABORA','NZEGA TC','MBOGWE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,9,131,'TABORA','NZEGA TC','MIGUWA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(14,9,141,'TABORA','NZEGA TC','ITILO')");
@@ -1883,7 +1886,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,51,'KIGOMA','KIGOMA RURAL','BITALE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,61,'KIGOMA','KIGOMA RURAL','MKONGORO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,71,'KIGOMA','KIGOMA RURAL','MAHEMBE')");
-        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,71,'KIGOMA','KIGOMA RURAL','SIMBO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,81,'KIGOMA','KIGOMA RURAL','MATENDO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,91,'KIGOMA','KIGOMA RURAL','MUNGONYA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,101,'KIGOMA','KIGOMA RURAL','KAGONGO')");
@@ -1892,6 +1894,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,1045,'KIGOMA','KIGOMA RURAL','NKUNGWE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,1046,'KIGOMA','KIGOMA RURAL','NYARUBANDA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,1047,'KIGOMA','KIGOMA RURAL','ZIWANI')");
+        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,3,1071,'KIGOMA','KIGOMA RURAL','SIMBO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,4,12,'KIGOMA','KIGOMA MUNICIPAL-UJIJI','GUNGU')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,4,22,'KIGOMA','KIGOMA MUNICIPAL-UJIJI','KIBIRIZI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(16,4,32,'KIGOMA','KIGOMA MUNICIPAL-UJIJI','BUHANDA')");
@@ -2168,7 +2171,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,81,'MARA','RORYA','BUKURA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,91,'MARA','RORYA','ROCHE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,101,'MARA','RORYA','IKOMA')");
-        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,101,'MARA','RORYA','KITEMBE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,111,'MARA','RORYA','MIRARE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,121,'MARA','RORYA','GORIBE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,143,'MARA','RORYA','KORYO')");
@@ -2184,6 +2186,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,1013,'MARA','RORYA','KYANGASAGA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,1014,'MARA','RORYA','NYABURONGO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,1015,'MARA','RORYA','RARANYA')");
+        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,6,1101,'MARA','RORYA','KITEMBE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,7,11,'MARA','BUTIAMA','BWIREGI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,7,21,'MARA','BUTIAMA','BUSWAHILI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,7,31,'MARA','BUTIAMA','NYAMIMANGE')");
@@ -2242,7 +2245,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,111,'MARA','MUSOMA DC','TEGERUKA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,121,'MARA','MUSOMA DC','KIRIBA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,131,'MARA','MUSOMA DC','BUSAMBARA')");
-        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,131,'MARA','MUSOMA DC','NYAKATENDE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,141,'MARA','MUSOMA DC','ETARO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,143,'MARA','MUSOMA DC','MUGANGO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,151,'MARA','MUSOMA DC','NYEGINA')");
@@ -2251,6 +2253,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,1004,'MARA','MUSOMA DC','IFULIFU')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,1005,'MARA','MUSOMA DC','MUSANJA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,1006,'MARA','MUSOMA DC','RUSOLI')");
+        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,10,1131,'MARA','MUSOMA DC','NYAKATENDE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,11,11,'MARA','TARIME DC','SUSUNI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,11,21,'MARA','TARIME DC','MWEMA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(20,11,33,'MARA','TARIME DC','SIRARI')");
@@ -2319,7 +2322,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,111,'SIMIYU','MEATU','MWABUZO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,121,'SIMIYU','MEATU','MWAMALOLE')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,131,'SIMIYU','MEATU','MWANJOLO')");
-        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,131,'SIMIYU','MEATU','NKOMA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,141,'SIMIYU','MEATU','MWABUMA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,151,'SIMIYU','MEATU','MWABUSALU')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,161,'SIMIYU','MEATU','LUBIGA')");
@@ -2336,6 +2338,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,1024,'SIMIYU','MEATU','MBUGAYABANGHYA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,1025,'SIMIYU','MEATU','MBUSHI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,1026,'SIMIYU','MEATU','MWANGUDO')");
+        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,3,1131,'SIMIYU','MEATU','NKOMA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,11,'SIMIYU','MASWA','NG''WIGWA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,21,'SIMIYU','MASWA','NGULIGULI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,31,'SIMIYU','MASWA','IPILILO')");
@@ -2356,7 +2359,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,201,'SIMIYU','MASWA','NYABUBINZA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,211,'SIMIYU','MASWA','MWANG''HONOLI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,221,'SIMIYU','MASWA','ISANGA')");
-        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,221,'SIMIYU','MASWA','KULIMI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,233,'SIMIYU','MASWA','MALAMPAKA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,241,'SIMIYU','MASWA','BADI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,253,'SIMIYU','MASWA','NYALIKUNGU')");
@@ -2372,6 +2374,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,1019,'SIMIYU','MASWA','SENG''WA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,1020,'SIMIYU','MASWA','SHANWA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,1021,'SIMIYU','MASWA','SOLA')");
+        dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,4,1221,'SIMIYU','MASWA','KULIMI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,5,11,'SIMIYU','BUSEGA','SHIGALA')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,5,21,'SIMIYU','BUSEGA','BADUGU')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,5,31,'SIMIYU','BUSEGA','NYALUHANDE')");
@@ -2418,6 +2421,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,7,233,'SIMIYU','BARIADI TC','BARIADI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,7,243,'SIMIYU','BARIADI TC','MALAMBO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,7,253,'SIMIYU','BARIADI TC','SIMA')");
+
 
         cnSET.close();
         dbSET.close();
