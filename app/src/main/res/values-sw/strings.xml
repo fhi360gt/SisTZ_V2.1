@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SIS TZ 2.0</string>
-    <string name="SIS">Mfumo wa Taarifa za Shule  2.0.2</string>
+    <string name="SIS">Mfumo wa Taarifa za Shule  2.0.3</string>
     <string name="str_en">English</string>
     <string name="str_es">Spanish</string>
     <string name="action_settings1">Mpangilio wa Shule</string>
@@ -573,6 +573,6 @@
     <string name="str_g_therearenot_student">Kuna si wanafunzi kupewa au Mwalimu si \"Hatari mwalimu\"</string>
     <string name="str_g_enter_information">Lazima kuingiza habari halali.</string>
     <string name="str_g_change_emis_code">Moduli hii utapata mabadiliko ya kimuundo taarifa ya SIS. Je, si kuanzisha mabadiliko isipokuwa madhubuti wanashauriwa. Press Thibitisha kama unataka kuendelea au vyombo vya habari kufuta kurudi orodha kuu.</string>
-    <string name="str_g_change_emis_code_confirm">Unakaribia kuhifadhi mabadiliko yako. Hii itaathiri muundo wa database. Press kufuta kama wewe ni uhakika, wengine wenye busara wa waandishi wa habari Thibitisha kuhifadhi mabadiliko.</string>
+    <string name="str_g_change_emis_code_confirm">Unakaribia kuhifadhi mabadiliko yako. Hii itaathiri muundo wa database. Press kufuta kama wewe ni uhakika, vinginevyo waandishi Thibitisha kuhifadhi mabadiliko.</string>
 
 </resources>

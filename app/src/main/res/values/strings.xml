@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SIS TZ 2.0</string>
+    <string name="app_name">SIS TZ 2.0.3</string>
 
     <string name="action_settings1">@string/str_s_tv1</string>
     <string name="action_settings2">@string/str_s_tv2</string>
@@ -12,7 +12,7 @@
     <string name="action_settings9">@string/str_s_tv6</string>
     <string name="action_settings10">@string/str_s_tv10</string>
 
-    <string name="SIS">School Information System 2.0.2</string>
+    <string name="SIS">School Information System 2.0.3</string>
     <string name="pp">Pre-Primary</string>
     <string name="p">Primary</string>
     <string name="s">Secondary</string>
@@ -658,6 +658,6 @@
     <string name="str_g_enter_information">You should enter valid information.</string>
     <string name="str_g_change_emis_code">This module allows you to change structural information of SIS. Do not introduce changes unless strictly advised. Press Confirm if you wish to continue or press Cancel to return to the main menu.</string>
     <string name="str_g_warning">Warning</string>
-    <string name="str_g_change_emis_code_confirm">You are about to save your changes. This will affect the structure of the database. Press Cancel if you are not sure, other wise press Confirm to save changes.</string>
+    <string name="str_g_change_emis_code_confirm">You are about to save your changes. This will affect the structure of the database. Press Cancel if you are not sure, otherwise press Confirm to save changes.</string>
 
 </resources>
