@@ -18,7 +18,7 @@
     <string name="str_s_tv5">Recuperación</string>
     <string name="str_s_tv6">Lenguaje</string>
     <string name="str_s_tv7">Acerca del SIS</string>
-    <string name="SIS">Sistema de Información de Escuelas 2.0.3</string>
+    <string name="SIS">Sistema de Información de Escuelas 2.0.4</string>
     <string name="str_sw">Kiswahili</string>
     <string name="p">Primaria</string>
     <string name="pp">Pre-Primaria</string>
@@ -64,7 +64,7 @@
     <string name="str_bl_msj3">Confirmar</string>
     <string name="str_bl_msj4">Cancelar</string>
     <string name="str_bl_msj5">La información ha sido actualizada.</string>
-    <string name="str_bl_msj6">Debe introducir la posición geográfica ... !!!</string>
+    <string name="str_bl_msj6">Debe introducir la posición geográfica.</string>
     <string name="str_bl2_a">2. Las aulas de educación infantil</string>
     <string name="str_bl2_b">Aulas</string>
     <string name="str_bl2_c">Escribe el número de aulas utilizadas por la Educación Infantil (Sólo las habitaciones utilizadas para la instrucción; excluye la oficina, sala de profesores, y almacenamiento) según el tipo de construcción.</string>
@@ -108,7 +108,7 @@
     <string name="str_g_no">No</string>
     <string name="str_g_yes">Si</string>
     <string name="str_g_textbooks">Libros de texto</string>
-    <string name="str_bl2_msj1">Debe introducir al menos un registro ... !!!</string>
+    <string name="str_bl2_msj1">Debe introducir al menos un registro.</string>
     <string name="str_bl3_j">5. Ciencia (S)</string>
     <string name="str_bl3_k">6. Geografía (SS)</string>
     <string name="str_bl3_l">7. Ciencia del derecho civico (SS)</string>
@@ -574,4 +574,6 @@
     <string name="str_g_enter_information">Debe introducir información válida</string>
     <string name="str_g_change_emis_code">Este módulo le permite cambiar la información estructural de SIS. No introducir cambios a menos que se aconseje estrictamente. Presione Confirmar si desea continuar o presione Cancelar para regresar al menú principal.</string>
     <string name="str_g_change_emis_code_confirm">Estás a punto de guardar los cambios. Esto afectará a la estructura de la base de datos. Pulse Cancelar si no está seguro, de lo contrario pulse Confirmar para guardar los cambios.</string>
+    <string name="str_g_warning">Advertencia</string>
+
 </resources>

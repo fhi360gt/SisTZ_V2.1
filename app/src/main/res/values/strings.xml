@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SIS TZ 2.0.3</string>
+    <string name="app_name">SIS TZ 2.0.4</string>
 
     <string name="action_settings1">@string/str_s_tv1</string>
     <string name="action_settings2">@string/str_s_tv2</string>
@@ -12,7 +12,7 @@
     <string name="action_settings9">@string/str_s_tv6</string>
     <string name="action_settings10">@string/str_s_tv10</string>
 
-    <string name="SIS">School Information System 2.0.3</string>
+    <string name="SIS">School Information System 2.0.4</string>
     <string name="pp">Pre-Primary</string>
     <string name="p">Primary</string>
     <string name="s">Secondary</string>
@@ -151,7 +151,7 @@
     <string name="str_bl_msj3">Confirm</string>
     <string name="str_bl_msj4">Cancel</string>
     <string name="str_bl_msj5">The information has been updated.</string>
-    <string name="str_bl_msj6">You must enter Geographical position ... !!!</string>
+    <string name="str_bl_msj6">You must enter Geographical position.</string>
     <!-- Second Form-->
     <string name="str_bl2_a">2. Pre-primary Classroom</string>
     <string name="str_bl2_b">Classrooms</string>
@@ -177,7 +177,7 @@
     <string name="str_bl2_v">6. Benches 2 seater</string>
     <string name="str_bl2_w">7. Benches 3 seater</string>
     <string name="str_bl2_x">8. Chalkboard</string>
-    <string name="str_bl2_msj1">You must enter at least one record ... !!!</string>
+    <string name="str_bl2_msj1">You must enter at least one record.</string>
     <!-- Third Form-->
     <string name="str_bl3_a">3. Primary Curriculum and Instruction</string>
     <string name="str_bl3_b">National Curriculum</string>
@@ -299,8 +299,8 @@
     <string name="str_bl7_s22">Auto mechanics</string>
     <string name="str_bl7_t">Teachers Living Quarters </string>
     <string name="str_bl7_u">Write the NUMBER OF TEACHERS LIVING QUARTERS by construction type:</string>
-    <string name="str_bl7_v">1. Solid </string>
-    <string name="str_bl7_v1">Built with cement blocks and steel </string>
+    <string name="str_bl7_v">1. Solid</string>
+    <string name="str_bl7_v1">Built with cement blocks and steel</string>
     <string name="str_bl7_w">2. Semi-solid Built</string>
     <string name="str_bl7_w1">largely with mud/burnt bricks</string>
     <string name="str_bl7_x">3. Makeshift</string>
