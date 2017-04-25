@@ -55,6 +55,8 @@ public class APIUtility {
         sendData("http://fhi360bi.org/user/tz_school/JSONaINSERT_v2.php", data, false, datos);
         //sendData("http://54.209.225.96/tz_school/JSONaINSERT_v3.php", data, false, datos);
         //sendData("http://54.209.225.96/tz_school/JSONaINSERT_v4.php", data, false, datos);
+        dbSET.close();
+        cnSET.close();
 
     }
 

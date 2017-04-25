@@ -2,6 +2,8 @@ package com.example.sergio.sistz;
 
 import android.app.Application;
 
+import com.example.sergio.sistz.util.toolsfncs;
+
 import org.acra.ACRA;
 import org.acra.annotation.ReportsCrashes;
 import org.acra.sender.HttpSender;
@@ -23,6 +25,8 @@ public class MainApp extends Application{
         super.onCreate();
 
         ACRA.init(this);
+        String emis= toolsfncs.getEMIS_code(this);
+        ACRA.getErrorReporter().putCustomData("EMIS", emis);
     }
 
 }

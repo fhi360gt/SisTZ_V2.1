@@ -98,6 +98,7 @@ public class service_sms extends Service {
                 }
                 cur_g3.close();
                 cnGEO3.close();
+                dbGEO3.close();
                 for (int a = 0; a < list_g3.size(); a++) {
                     cd = new ConnectionDetector(getApplicationContext());
                     isInternetPresent = cd.isConnectingToInternet();
@@ -203,6 +204,8 @@ public class service_sms extends Service {
                             sql.put("flag","0");
                             dbGEO3.update("sisupdate", sql, "sis_sql='" + message + "'", null);
                             //dbGEO3.delete("sisupdate", "id=" + identificador, null);
+                            dbGEO3.close();
+                            cnGEO3.close();
                             break;
                         case Activity.RESULT_CANCELED:
                             Toast.makeText(getBaseContext(), "SMS not delivered", Toast.LENGTH_SHORT).show();

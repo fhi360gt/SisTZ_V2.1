@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
 
@@ -19,7 +20,8 @@ import java.io.File;
  */
 
 public class toolsfncs extends Activity{
-    public static final String STATICS_ROOT = Environment.getExternalStorageDirectory() + File.separator + "sisdb.sqlite";
+    //public static final String STATICS_ROOT = Environment.getExternalStorageDirectory() + File.separator + "sisdb.sqlite";
+    public static final String STATICS_ROOT = Environment.getExternalStorageDirectory() + File.separator + "sisdb";
 
     public static void logFunctions(Context contexto, String startLog, String locationLog, String finishLog) {
         Conexion cnSET = new Conexion(contexto,STATICS_ROOT, null, 4);
@@ -82,5 +84,19 @@ public class toolsfncs extends Activity{
     private static void confirm() {
     }
 
+
+    public static String getEMIS_code(Context context){
+        String getemiscode="";
+        Conexion cnSET = new Conexion(context, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
+        SQLiteDatabase dbSET = cnSET.getReadableDatabase();
+        try {
+            Cursor cur_data = dbSET.rawQuery("SELECT emis FROM ms_0", null);
+            cur_data.moveToFirst();
+            if (cur_data.getCount() > 0) {getemiscode = cur_data.getString(0);} else {getemiscode = "";}
+        }catch (Exception e) {}
+        dbSET.close();
+        cnSET.close();
+        return getemiscode;
+    }
 
 }
