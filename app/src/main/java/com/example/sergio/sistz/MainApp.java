@@ -1,12 +1,15 @@
 package com.example.sergio.sistz;
 
 import android.app.Application;
+import android.os.Environment;
 
 import com.example.sergio.sistz.util.toolsfncs;
 
 import org.acra.ACRA;
 import org.acra.annotation.ReportsCrashes;
 import org.acra.sender.HttpSender;
+
+import java.io.File;
 
 /**
  * Created by pjyac on 20/03/2017.
@@ -20,13 +23,17 @@ import org.acra.sender.HttpSender;
 )
 
 public class MainApp extends Application{
+    File dbFile = new File (Environment.getExternalStorageDirectory() + File.separator + "sisdb" + File.separator + "sisdb.sqlite");
     @Override
     public void onCreate() {
         super.onCreate();
 
         ACRA.init(this);
-        String emis= toolsfncs.getEMIS_code(this);
-        ACRA.getErrorReporter().putCustomData("EMIS", emis);
+        if (!dbFile.exists()) {}
+        else {
+            String emis = toolsfncs.getEMIS_code(this);
+            ACRA.getErrorReporter().putCustomData("EMIS", emis);
+        }
     }
 
 }

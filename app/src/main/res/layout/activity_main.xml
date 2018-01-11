@@ -53,6 +53,14 @@
             <ImageButton
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:id="@+id/btn_data_ready"
+                android:background="@drawable/data_transfer_ready"
+                android:layout_marginTop="-5dp"
+                android:layout_marginLeft="20dp" />
+
+            <ImageButton
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:id="@+id/btn_cell_number"
                 android:background="@drawable/cell_number"
                 android:visibility="invisible"

@@ -500,18 +500,18 @@ public class DailyClassroomBehaviour extends Activity implements AdapterView.OnI
     // *********** Control Alerts ************************
     public void dialogAlert(int v){
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-        dialogo1.setTitle("Important");
-        if (v == 1){dialogo1.setMessage("Are sure you want to save?");}
+        dialogo1.setTitle(getResources().getString(R.string.str_bl_msj1)); // Importante
+        if (v == 1){dialogo1.setMessage(getResources().getString(R.string.str_bl_msj2));}
         if (v == 2){dialogo1.setMessage("Are you sure to quit?");}
         if (v == 3){dialogo1.setMessage("Are you sure to delete record?");}
 
         dialogo1.setCancelable(false);
-        dialogo1.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+        dialogo1.setPositiveButton(getResources().getString(R.string.str_g_cancel), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
                 cancelar();
             }
         });
-        dialogo1.setNegativeButton("Confirm", new DialogInterface.OnClickListener() {
+        dialogo1.setNegativeButton(getResources().getString(R.string.str_g_confirm), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
                 aceptar();
                 //load_lv_subject_assing(SettingsMenuStaff.TS_code);

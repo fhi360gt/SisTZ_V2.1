@@ -464,7 +464,7 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
             reg.put("subject", subject_selected);
             HashMap<String,String> item = (HashMap<String, String>) lv_attendance.getItemAtPosition(i);
             String reason_val = String.valueOf(((TextView)((Spinner)lv_attendance.getChildAt(i).findViewById(R.id.sp_reason)).getSelectedView()).getText().toString());
-            if (reason_val.toString().equals("Sick") || reason_val.toString().equals("Excused") || reason_val.toString().equals("Unexcused") || reason_val.toString().equals("Total absence") ) {
+            if (reason_val.toString().equals(getResources().getString(R.string.str_g_sick)) || reason_val.toString().equals(getResources().getString(R.string.str_g_excused)) || reason_val.toString().equals(getResources().getString(R.string.str_g_unexcused)) || reason_val.toString().equals("Total absence") ) {
                 absence="";
                 // ******************* CONTROL DE RAZON DE AUSENCIA *****************************
                 reason_val = String.valueOf(((TextView)((Spinner)lv_attendance.getChildAt(i).findViewById(R.id.sp_reason)).getSelectedView()).getText().toString());
@@ -473,7 +473,10 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
                     case "Sick": reason="1"; break;
                     case "Excused": reason="2"; break;
                     case "Unexcused": reason="3"; break;
-                    case "Total absence": reason="4"; break;
+                    case "Kuumwa": reason="1"; break;
+                    case "Ruhusiwa": reason="2"; break;
+                    case "Kutoruhusiwa": reason="3"; break;
+                    //case "Total absence": reason="4"; break;
                 }
             } else {
                 absence="1";
@@ -565,18 +568,19 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
     // *********** Control Alerts ************************
     public void dialogAlert(int v){
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-        dialogo1.setTitle("Important");
-        if (v == 1){dialogo1.setMessage("Are sure you want to save?");}
+        //dialogo1.setTitle("Important");
+        dialogo1.setTitle(getResources().getString(R.string.str_bl_msj1)); // Importante
+        if (v == 1){dialogo1.setMessage(getResources().getString(R.string.str_bl_msj2));}
         if (v == 2){dialogo1.setMessage("Are you sure to quit?");}
         if (v == 3){dialogo1.setMessage("Are you sure to delete record?");}
 
         dialogo1.setCancelable(false);
-        dialogo1.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+        dialogo1.setPositiveButton(getResources().getString(R.string.str_g_cancel), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
                 cancelar();
             }
         });
-        dialogo1.setNegativeButton("Confirm", new DialogInterface.OnClickListener() {
+        dialogo1.setNegativeButton(getResources().getString(R.string.str_g_confirm), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
                 aceptar();
                 //load_lv_subject_assing(SettingsMenuStaff.TS_code);

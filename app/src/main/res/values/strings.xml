@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SIS TZ 2.0.4</string>
+    <string name="app_name">SIS TZ 2.06</string>
 
     <string name="action_settings1">@string/str_s_tv1</string>
     <string name="action_settings2">@string/str_s_tv2</string>
@@ -12,7 +12,7 @@
     <string name="action_settings9">@string/str_s_tv6</string>
     <string name="action_settings10">@string/str_s_tv10</string>
 
-    <string name="SIS">School Information System 2.0.4</string>
+    <string name="SIS">School Information System 2.0.6</string>
     <string name="pp">Pre-Primary</string>
     <string name="p">Primary</string>
     <string name="s">Secondary</string>
@@ -32,7 +32,7 @@
         <item>@string/str_g_sick</item>
         <item>@string/str_g_excused</item>
         <item>@string/str_g_unexcused</item>
-        <item>@string/str_g_total_absence</item>
+        <!--<item>@string/str_g_total_absence</item>-->
     </string-array>
 
     <string-array name="behaviour">

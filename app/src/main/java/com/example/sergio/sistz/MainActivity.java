@@ -16,7 +16,6 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -38,7 +37,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sergio.sistz.mysql.Conexion;
-import com.example.sergio.sistz.mysql.DBlogfunctions;
 import com.example.sergio.sistz.util.BKDBWebUtility;
 import com.example.sergio.sistz.util.BkDbUtility;
 import com.example.sergio.sistz.util.CopyAssetDBUtility;
@@ -74,7 +72,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     String defaultUrl = "http://developer.android.com/assets/images/dac_logo.png";
     ProgressBar pd;
     public Locale locale;
-    public Configuration config = new Configuration();
+    public Configuration config= new Configuration();
     TextView tv_baseline, tv_dailyclassroom, tv_finance, tv_reports;
     public static Integer language=1;
 //este es un comentario para prueba de github OK
@@ -96,6 +94,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private int totalProgressTime = 0;
     private Handler handler = new Handler();
 
+    int data_transfer_ready_done; // Cambio 11.Enero.2018 para indicar si hay informacion pendiente de enviar
+    ImageButton btn_data_transfer;
+
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -107,7 +108,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         server_number();
         //showLanguage();
-
     }
 
     @Override
@@ -140,6 +140,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         _PhoneNumber = getPhone_number();
         // ************ Alerta que no hay numero de telefono (no eliminar) ***********
         // if (_PhoneNumber.isEmpty()) {dialogAlert(1);}
+
+        onCheckDataTransferReady();
+
     }
 
 
@@ -154,7 +157,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         server_number();
         //showLanguage();
-
+        onCheckDataTransferReady();
     }
 
     @Override
@@ -261,6 +264,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         tv_dailyclassroom = (TextView) findViewById(R.id.tv_dailyclassroom);
         tv_finance = (TextView) findViewById(R.id.tv_finance);
         tv_reports = (TextView) findViewById(R.id.tv_reports);
+        btn_data_transfer = (ImageButton) findViewById(R.id.btn_data_ready);
 
 
         //************* Start FrameLayout **************************
@@ -279,6 +283,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         //if (_PhoneNumber.isEmpty()) {dialogAlert(1);}
 
         // **************** CLICK ON BUTTONS ********************
+
 
         start_menu();
         //Toast.makeText(getBaseContext(),"Lenguage: " + getLang(),Toast.LENGTH_SHORT).show();
@@ -390,6 +395,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             _buttons();
             //showLanguage(Wizard.language);
         }
+
+        onCheckDataTransferReady();
     }
 
     private void _buttons () {
@@ -1195,6 +1202,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
         cur_data.moveToFirst();
         getflagbdd = cur_data.getString(0);
         return getflagbdd;
+    }
+
+    public int dataTransferReady(){
+        int getflag=0;
+        Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
+        SQLiteDatabase dbSET = cnSET.getReadableDatabase();
+        Cursor cur_data = dbSET.rawQuery("SELECT COUNT(*) AS ready_done FROM sisupdate WHERE flag=1", null);
+        cur_data.moveToFirst();
+        getflag =  cur_data.getInt(0);
+        return getflag;
+    }
+
+    public void onCheckDataTransferReady() {
+        data_transfer_ready_done = dataTransferReady();
+        if ( data_transfer_ready_done  > 0 ) {
+            btn_data_transfer.setBackgroundResource(R.drawable.data_transfer_ready);
+        } else {
+            btn_data_transfer.setBackgroundResource(R.drawable.data_transfer_done);
+        }
     }
 
 
@@ -2442,15 +2468,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
         SQLiteDatabase dbSET = cnSET.getReadableDatabase();
         Cursor cur_data = dbSET.rawQuery("SELECT flag FROM backup", null);
-
         if (cur_data.moveToFirst()){
             getflagbktable = cur_data.getString(0);
         }
         else{
-
             getflagbktable = "0";
         }
-
         return getflagbktable;
     }
 
@@ -2487,4 +2510,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSETpromotion.close();
         cnSETpromotion.close();
     }
+
+
 }

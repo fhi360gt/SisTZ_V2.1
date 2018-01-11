@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SIS TZ 2.0</string>
-    <string name="SIS">Mfumo wa Taarifa za Shule  2.0.4</string>
+    <string name="app_name">SIS TZ 2.0.5</string>
+    <string name="SIS">Mfumo wa Taarifa za Shule  2.0.5</string>
     <string name="str_en">English</string>
     <string name="str_es">Spanish</string>
     <string name="action_settings1">Mpangilio wa Shule</string>
@@ -44,7 +44,7 @@
     <string name="str_bl_13">10. Picha za shule</string>
     <string name="str_bl_12a">Anza kurekodi Mahali</string>
     <string name="str_bl_12c">Acha kurekodi</string>
-    <string name="str_bl_12b">Hakuna kuratibu inapatikana ...</string>
+    <string name="str_bl_12b">Hakuna vipimo vya kijiografia vilivyopatikana</string>
     <string name="str_m_tv1">Taarifa msingi</string>
     <string name="str_m_tv2">Darasa</string>
     <string name="str_m_tv3">Ripoti</string>
@@ -185,7 +185,7 @@
     <string name="str_g_mechanics">Mechanics</string>
     <string name="str_g_music">Mziki</string>
     <string name="str_g_physics">Fizikia</string>
-    <string name="str_g_sports_physical_education">Michezo / Elimu ya Viungo Education</string>
+    <string name="str_g_sports_physical_education">Elimu ya Michezo / Viungo</string>
     <string name="album_name">SisTZ</string>
     <string name="cannot">Haiwezi</string>
     <string name="action_settings3">Rudisha kutoka mtandaoni</string>
@@ -404,7 +404,7 @@
     <string name="str_g_local">Ndani ya tablet</string>
     <string name="str_g_web">Mtandaoni </string>
     <string name="str_g_receiver">Mpokeaji</string>
-    <string name="str_g_cancel">Futa</string>
+    <string name="str_g_cancel">Kataa</string>
     <string name="str_g_confirm">Thibitisha</string>
     <string name="str_g_msj10">Kuna taarifa katika namba hii ya shule</string>
     <string name="str_s_a">1. Mwanafunzi</string>
@@ -490,7 +490,7 @@
     <string name="str_bl3_p5">16. Kutunza Afya na Mazingira</string>
     <string name="str_bl3_p6">17. Kucheza na Kuendeleza Sanaa</string>
     <string name="str_s_tv10">Futa database</string>
-    <string name="str_g_msj11">Je, una uhakika wa kutaka futa database?</string>
+    <string name="str_g_msj11">Je, una uhakika wa kutaka kufuta database?</string>
     <string name="str_g_msj12">Kama unahitaji kuanzisha database, wasiliana na Msimamizi wako</string>
     <string name="str_g_afternoon">Mchana</string>
     <string name="str_g_evening">Jioni</string>
@@ -545,12 +545,11 @@
     <string name="str_ff_f">Jumla ya kiasi kilichopokelewa mwezi huu:</string>
     <string name="str_ff_g">Jumla ya kiasi mwanzoni mwa mwezi:</string>
     <string name="str_ff_h">Jumla ya kiasi mwishoni mwa mwezi:</string>
-    <string name="str_ff_i1">Matumizi Sura</string>
-    <string name="str_ff_i2">Vitu Vilivyonunuliwa</string>
-    <string name="str_ff_i3">Gharama ya kitu kimoja</string>
+    <string name="str_ff_i2">Bidhaa zilizonunuliwa</string>
+    <string name="str_ff_i3">Gharama ya bidhaa moja moja</string>
     <string name="str_ff_i4">Jumla</string>
     <string name="str_ff_i5">Bakaa</string>
-    <string name="str_ff_j">30% vifaa non-textual</string>
+    <string name="str_ff_j">30% Vitabu/ Vifaa vya ziada</string>
     <string name="str_ff_k">30% Miundombinu shule (kutengeneza)</string>
     <string name="str_ff_l">20% Mitihani ya kuendelea tathmini</string>
     <string name="str_ff_m">10% Uratibu wa Michezo</string>
@@ -575,6 +574,7 @@
     <string name="str_g_change_emis_code_confirm">Unakaribia kuhifadhi mabadiliko yako. Hii itaathiri muundo wa database. Press kufuta kama wewe ni uhakika, vinginevyo waandishi Thibitisha kuhifadhi mabadiliko.</string>
     <string name="action_settings11">Kukuza Moja kwa moja</string>
     <string name="str_g_warning">Onyo</string>
+    <string name="str_ff_i1">Matumizi ya Ruzuku</string>
 
 
 </resources>
