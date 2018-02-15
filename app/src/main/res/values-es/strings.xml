@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SIS TZ 2.0.5</string>
+    <string name="app_name">SIS TZ 2.0.6</string>
     <string name="action_settings1">Configuración de la escuela</string>
     <string name="action_settings2">Configuración del administrador</string>
     <string name="action_settings4">Buscar actualizaciones ...</string>
@@ -18,7 +18,7 @@
     <string name="str_s_tv5">Recuperación</string>
     <string name="str_s_tv6">Lenguaje</string>
     <string name="str_s_tv7">Acerca del SIS</string>
-    <string name="SIS">Sistema de Información de Escuelas 2.0.5</string>
+    <string name="SIS">Sistema de Información de Escuelas 2.0.6</string>
     <string name="str_sw">Kiswahili</string>
     <string name="p">Primaria</string>
     <string name="pp">Pre-Primaria</string>

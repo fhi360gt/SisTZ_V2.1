@@ -3,7 +3,6 @@
     <item>
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
             <solid android:color="#000000"/>
-
         </shape>
     </item>
     <item
@@ -11,7 +10,6 @@
         android:left="1dp">
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
             <solid android:color="#f2f2f2"/>
-
         </shape>
     </item>
 </layer-list>

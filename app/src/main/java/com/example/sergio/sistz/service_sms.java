@@ -18,7 +18,6 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.telephony.SmsManager;
 import android.util.Log;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.Toast;
 
 import com.example.sergio.sistz.mysql.Conexion;
@@ -74,7 +73,7 @@ public class service_sms extends Service {
                     } while (cur_num.moveToNext());
                 }
                 cur_num.close();
-                if(list_num.isEmpty()){
+                if(list_num.isEmpty() || String.valueOf(list_num.get(0)).equals("null")){
                     phoneNo = "0";
 
                 }

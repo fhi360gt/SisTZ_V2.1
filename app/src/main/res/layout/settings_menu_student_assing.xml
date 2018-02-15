@@ -131,22 +131,21 @@
         <!--************* PART 2 ************-->
         <FrameLayout
             android:layout_width="fill_parent"
-            android:layout_height="match_parent"
+            android:layout_height="fill_parent"
             android:visibility="visible"
             android:id="@+id/fl_part2"
-            android:layout_weight=".365">
+            android:layout_weight=".350">
 
 
             <ScrollView
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent"
+                android:layout_height="fill_parent"
                 android:layout_marginBottom="15dp">
 
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight=".345"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp">
 
@@ -160,149 +159,206 @@
                         android:layout_height="fill_parent"
                         android:weightSum=".5"
                         android:layout_weight=".5"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="15dp"
                         android:layout_gravity="center"
                         android:layout_marginLeft="50dp"
                         android:layout_marginRight="50dp"
-                        android:layout_marginBottom="30dp">
+                        android:layout_marginBottom="20dp">
 
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="@string/str_sa_b"
-                            android:layout_weight=".2"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:textStyle="bold"
-                            android:textColor="#000000"
-                            android:textSize="25dp"
-                            android:id="@+id/textView87"
-                            android:layout_marginBottom="20dp" />
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="@string/str_g_shift"
-                            android:layout_weight=".2"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:textStyle="bold"
-                            android:textColor="#4b4b4b"
-                            android:textSize="20dp" />
-
-                        <Spinner
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/sp_shift"
-                            android:background="@drawable/util_spinner"
-                            android:layout_margin="5dp" />
+                            android:weightSum="5"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="@string/str_sa_b"
+                                android:layout_weight="5"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textStyle="bold"
+                                android:textColor="#000000"
+                                android:textSize="25dp"
+                                android:id="@+id/textView87"
+                                android:layout_marginBottom="20dp" />
+                        </LinearLayout>
 
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="@string/str_g_level"
-                            android:layout_weight=".2"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:textStyle="bold"
-                            android:textColor="#4b4b4b"
-                            android:textSize="20dp"
-                            android:layout_marginTop="5dp" />
-
-                        <Spinner
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/sp_level"
-                            android:layout_weight=".25"
-                            android:background="@drawable/util_spinner"
-                            android:layout_margin="5dp" />
+                            android:weightSum="5"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="@string/str_g_year"
+                                android:layout_weight="2"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textStyle="bold"
+                                android:textColor="#4b4b4b"
+                                android:textSize="25dp" />
+                            <Spinner
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:id="@+id/sp_year"
+                                android:background="@drawable/util_spinner"
+                                android:layout_margin="5dp" />
+                        </LinearLayout>
 
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="@string/str_g_grade"
-                            android:layout_weight=".1"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:textStyle="bold"
-                            android:textColor="#4b4b4b"
-                            android:textSize="20dp"
-                            android:layout_marginTop="5dp" />
-
-                        <Spinner
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/sp_grade"
-                            android:layout_weight=".25"
-                            android:background="@drawable/util_spinner"
-                            android:layout_margin="5dp" />
+                            android:weightSum="5"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="@string/str_g_shift"
+                                android:layout_weight="2"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textStyle="bold"
+                                android:textColor="#4b4b4b"
+                                android:textSize="25dp" />
+                            <Spinner
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:id="@+id/sp_shift"
+                                android:background="@drawable/util_spinner"
+                                android:layout_margin="5dp" />
+                        </LinearLayout>
 
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:text="@string/str_g_stream"
-                            android:layout_weight=".15"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:textStyle="bold"
-                            android:textColor="#4b4b4b"
-                            android:textSize="20dp"
-                            android:layout_marginTop="5dp" />
-
-                        <Spinner
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/sp_section"
-                            android:layout_weight=".25"
-                            android:background="@drawable/util_spinner"
-                            android:layout_margin="5dp" />
+                            android:weightSum="5"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="@string/str_g_level"
+                                android:layout_weight="2"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textStyle="bold"
+                                android:textColor="#4b4b4b"
+                                android:textSize="25dp"
+                                android:layout_marginTop="5dp" />
+                            <Spinner
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/sp_level"
+                                android:layout_weight="3"
+                                android:background="@drawable/util_spinner"
+                                android:layout_margin="5dp" />
+                        </LinearLayout>
 
-                        <RadioGroup
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <RadioButton
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="@string/str_g_grade"
+                                android:layout_weight="2"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textStyle="bold"
+                                android:textColor="#4b4b4b"
+                                android:textSize="25dp"
+                                android:layout_marginTop="5dp" />
+                            <Spinner
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/sp_grade"
+                                android:layout_weight="3"
+                                android:background="@drawable/util_spinner"
+                                android:layout_margin="5dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="5"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="@string/str_g_stream"
+                                android:layout_weight="2"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:textStyle="bold"
+                                android:textColor="#4b4b4b"
+                                android:textSize="25dp"
+                                android:layout_marginTop="5dp" />
+                            <Spinner
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/sp_section"
+                                android:layout_weight="3"
+                                android:background="@drawable/util_spinner"
+                                android:layout_margin="5dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <RadioButton
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/str_sa_c"
+                                    android:id="@+id/cb_repeater"
+                                    android:textSize="25dp"
+                                    android:textColor="#4b4b4b"
+                                    android:paddingLeft="10dp"
+                                    android:layout_marginTop="20dp" />
+                                <RadioButton
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/str_sa_d"
+                                    android:id="@+id/cb_new_entrant"
+                                    android:textSize="25dp"
+                                    android:textColor="#4b4b4b"
+                                    android:paddingLeft="10dp"
+                                    android:checked="false" />
+                            </RadioGroup>
+
+                            <CheckBox
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/str_sa_c"
-                                android:id="@+id/cb_repeater"
+                                android:text="@string/str_sa_e"
+                                android:id="@+id/cb_new_entrant_pre_pri"
                                 android:textSize="25dp"
                                 android:textColor="#4b4b4b"
                                 android:paddingLeft="10dp"
-                                android:layout_marginTop="20dp" />
-                            <RadioButton
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/str_sa_d"
-                                android:id="@+id/cb_new_entrant"
-                                android:textSize="25dp"
-                                android:textColor="#4b4b4b"
-                                android:paddingLeft="10dp"
-                                android:checked="false" />
-                        </RadioGroup>
-
-
-                        <CheckBox
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_sa_e"
-                            android:id="@+id/cb_new_entrant_pre_pri"
-                            android:textSize="25dp"
-                            android:textColor="#4b4b4b"
-                            android:paddingLeft="10dp"
-                            android:checked="false"
-                            android:visibility="invisible" />
+                                android:checked="false"
+                                android:visibility="invisible" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:weightSum=".5"
                         android:layout_marginTop="7dp">
 
                         <LinearLayout
@@ -378,11 +434,11 @@
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="100dp">
+                            android:layout_height="match_parent">
 
                             <ListView
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="300dp"
                                 android:id="@+id/lv_subject_student"
                                 android:paddingTop="5dp" />
                         </LinearLayout>

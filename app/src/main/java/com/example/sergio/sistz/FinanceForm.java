@@ -3,24 +3,18 @@ package com.example.sergio.sistz;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.sergio.sistz.mysql.Conexion;
@@ -53,6 +47,7 @@ public class FinanceForm extends Activity implements View.OnClickListener, TextW
     int rg4_id ;
 
     String _IU="U";
+    String tmp_update="false";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,12 +128,12 @@ public class FinanceForm extends Activity implements View.OnClickListener, TextW
                 totalBalance();
             }
         });
-        _col5.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                totalBalance();
-            }
-        });
+//        _col5.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                totalBalance();
+//            }
+//        });
         _col6.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -203,22 +198,63 @@ public class FinanceForm extends Activity implements View.OnClickListener, TextW
         //Toast.makeText(this, "COL1: " +  col1 + ", COL2:" + col2, Toast.LENGTH_SHORT).show();
         _col3.setText(String.valueOf(Double.valueOf(col1) + Double.valueOf(col2)));
 
+        // 20180213 --- se han agregado los if, para condicionar que no se graben numeros negativos.
         _col15.setText(String.valueOf(Double.valueOf(col5) * Double.valueOf(col6)));
         _col16.setText(String.valueOf(Double.valueOf(_col3.getText().toString()) - Double.valueOf(_col15.getText().toString()) ));
+        if ((Double.valueOf(_col15.getText().toString()) < (Double.valueOf(_col3.getText().toString())-Double.valueOf(_col15.getText().toString())) )){
+            tmp_update="true";
+        } else {
+//            _col15.requestFocus();
+//            dialogAlert(3);
+            tmp_update="false";
+        }
 
         _col17.setText(String.valueOf(Double.valueOf(col7) * Double.valueOf(col8)));
         _col18.setText(String.valueOf(Double.valueOf(_col16.getText().toString()) - Double.valueOf(_col17.getText().toString())));
+        if ((Double.valueOf(_col17.getText().toString()) < (Double.valueOf(_col16.getText().toString())-Double.valueOf(_col17.getText().toString())) )){
+            tmp_update="true";
+        } else {
+//            dialogAlert(3);
+            tmp_update="false";
+        }
+
 
         _col19.setText(String.valueOf(Double.valueOf(col9) * Double.valueOf(col10)));
         _col20.setText(String.valueOf(Double.valueOf(_col18.getText().toString()) - Double.valueOf(_col19.getText().toString())));
+        if ((Double.valueOf(_col19.getText().toString()) < (Double.valueOf(_col18.getText().toString())-Double.valueOf(_col19.getText().toString())) )){
+            tmp_update="true";
+        } else {
+            //dialogAlert(3);
+            tmp_update="false";
+        }
+
 
         _col21.setText(String.valueOf(Double.valueOf(col11) * Double.valueOf(col12)));
         _col22.setText(String.valueOf(Double.valueOf(_col20.getText().toString()) - Double.valueOf(_col21.getText().toString())));
+        if ((Double.valueOf(_col21.getText().toString()) < (Double.valueOf(_col20.getText().toString())-Double.valueOf(_col21.getText().toString())) )){
+            tmp_update="true";
+        } else {
+            //dialogAlert(3);
+            tmp_update="false";
+        }
+
 
         _col23.setText(String.valueOf(Double.valueOf(col13) * Double.valueOf(col14)));
         _col24.setText(String.valueOf(Double.valueOf(_col22.getText().toString()) - Double.valueOf(_col23.getText().toString())));
+        if ((Double.valueOf(_col23.getText().toString()) > (Double.valueOf(_col22.getText().toString())-Double.valueOf(_col23.getText().toString())) )){
+            tmp_update="true";
+        } else {
+            //dialogAlert(3);
+            tmp_update="false";
+        }
 
-        _col4.setText(_col24.getText().toString());
+        if ((Double.valueOf(_col24.getText().toString()) < 0.00 )){
+            dialogAlert(3);
+            tmp_update="false";
+        } else {
+            _col4.setText(_col24.getText().toString());
+        }
+
     }
 
 
@@ -291,16 +327,19 @@ public class FinanceForm extends Activity implements View.OnClickListener, TextW
         if (!_col14.getText().toString().isEmpty()){reg.put("f14", Double.valueOf(_col14.getText().toString()));} sql = sql + _col14.getText().toString() + delimit;
         sql = sql + _IU;
         try {
-            // ****************** Fill Bitacora
-            ContentValues Bitacora = new ContentValues();
-            Bitacora.put("sis_sql",sql);
-            dbSET.insert("sisupdate",null,Bitacora);
-            // ********************* Fill TABLE d
-            if (_IU=="I") {dbSET.insert("finance", null, reg); _IU="U";}
-            else {dbSET.update("finance", reg, "_id=1", null);}
+            if (tmp_update.equals("true")) { // 20180213 verifica que el gasto sea menor al monto disponible
+                // ****************** Fill Bitacora
+                ContentValues Bitacora = new ContentValues();
+                Bitacora.put("sis_sql",sql);
+                dbSET.insert("sisupdate",null,Bitacora);
+                // ********************* Fill TABLE d
+                if (_IU=="I") {dbSET.insert("finance", null, reg); _IU="U";}
+                else {dbSET.update("finance", reg, "_id=1", null);}
 
-            toolsfncs.dialogAlertConfirm(this,getResources(),9);
-            //Toast.makeText(this, getResources().getString(R.string.str_bl_msj5), Toast.LENGTH_SHORT).show();
+                toolsfncs.dialogAlertConfirm(this,getResources(),9);
+                //Toast.makeText(this, getResources().getString(R.string.str_bl_msj5), Toast.LENGTH_SHORT).show();
+            }
+
         } catch (Exception e) {
             Toast.makeText(this, getResources().getString(R.string.str_bl2_msj1), Toast.LENGTH_SHORT).show();
         }
@@ -314,8 +353,12 @@ public class FinanceForm extends Activity implements View.OnClickListener, TextW
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_save:
-                dialogAlert(1);
-                //updateRecord();
+                if (tmp_update.equals("false")){
+                    dialogAlert(3);
+                } else {
+                    dialogAlert(1);
+                    //updateRecord();
+                }
                 break;
         }
 
@@ -323,15 +366,20 @@ public class FinanceForm extends Activity implements View.OnClickListener, TextW
 
     // *********** Control Alerts ************************
     public void dialogAlert(int v){
+        final int tmp_v=v;
         //Toast.makeText(getContext(),String.valueOf(v) ,Toast.LENGTH_SHORT).show();
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
         dialogo1.setTitle(getResources().getString(R.string.str_bl_msj1));
         if (v == 1){dialogo1.setMessage(getResources().getString(R.string.str_bl_msj2));}
         if (v == 2){dialogo1.setMessage("Are you sure to quit?");}
+        if (v == 3){dialogo1.setMessage("The cost > Balance!!!");}
         dialogo1.setCancelable(false);
         dialogo1.setPositiveButton(getResources().getString(R.string.str_bl_msj3), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
-                aceptar();
+                if (tmp_v==1) {
+                    aceptar();
+                }
+
             }
         });
         dialogo1.setNegativeButton(getResources().getString(R.string.str_bl_msj4), new DialogInterface.OnClickListener() {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SIS TZ 2.0.5</string>
-    <string name="SIS">Mfumo wa Taarifa za Shule  2.0.5</string>
+    <string name="app_name">SIS TZ 2.0.6</string>
+    <string name="SIS">Mfumo wa Taarifa za Shule 2.0.6</string>
     <string name="str_en">English</string>
     <string name="str_es">Spanish</string>
     <string name="action_settings1">Mpangilio wa Shule</string>

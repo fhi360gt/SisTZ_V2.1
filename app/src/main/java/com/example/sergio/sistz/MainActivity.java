@@ -88,6 +88,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private GoogleApiClient client;
     Calendar calendar = Calendar.getInstance();
     public int school_year = calendar.get(Calendar.YEAR);
+    public int actual_year = calendar.get(Calendar.YEAR);
 
     ProgressDialog progress;
     //String delimit="%";
@@ -901,13 +902,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //        return getLang;
 //    }
 
+    public void createTableLang() {
+        Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
+        SQLiteDatabase dbSET = cnSET.getReadableDatabase();
+        dbSET.execSQL("CREATE TABLE IF NOT EXISTS \"lang\" (\"lang\" TEXT, \"flag\" TEXT DEFAULT 0)");
+        dbSET.execSQL("INSERT INTO lang VALUES(\"en\",\"0\")");
+
+    }
+
     public String getLang(){
-        String getLang="";
+        String getLang="en";
         Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
         SQLiteDatabase dbSET = cnSET.getReadableDatabase();
         Cursor cur_data = dbSET.rawQuery("SELECT lang from lang", null);
         cur_data.moveToFirst();
-        getLang = cur_data.getString(0);
+        if (cur_data.getCount() > 0) {
+            getLang = cur_data.getString(0);
+        } else {
+            createTableLang();
+        }
         return getLang;
     }
 
@@ -1208,7 +1221,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         int getflag=0;
         Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
         SQLiteDatabase dbSET = cnSET.getReadableDatabase();
-        Cursor cur_data = dbSET.rawQuery("SELECT COUNT(*) AS ready_done FROM sisupdate WHERE flag=1", null);
+        //Cursor cur_data = dbSET.rawQuery("SELECT COUNT(*) AS ready_done FROM sisupdate WHERE flag=1 AND sql_sis not like \'%''%\'", null);
+        Cursor cur_data = dbSET.rawQuery("SELECT COUNT(*) AS ready_done FROM sisupdate WHERE flag=1 AND sis_sql NOT LIKE \"%'%\" ", null);
         cur_data.moveToFirst();
         getflag =  cur_data.getInt(0);
         return getflag;
@@ -2497,19 +2511,40 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void aut_promotion() {
         Conexion cnSETpromotion = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
         SQLiteDatabase dbSETpromotion = cnSETpromotion.getReadableDatabase();
+        int promotion_year=0;
         try {
-            //dbSET.execSQL("CREATE TABLE IF NOT EXISTS finance (_id INTEGER, _date DATE, emis INTEGER,f1 INTEGER,f2 INTEGER,f3 INTEGER,f4 INTEGER,f5 INTEGER,f6 INTEGER,f7 INTEGER,f8 INTEGER,f9 INTEGER, f10 INTEGER,f11 INTEGER,f12 INTEGER,f13 INTEGER,f14 INTEGER,flag TEXT)");
-            dbSETpromotion.execSQL("INSERT INTO _sa (emis, sc, shift, level, grade, section, subject_assigned, year_ta)\n" +
-                    "SELECT emis, sc, shift, level, grade+1, section, subject_assigned, year_ta+1 FROM _sa\n" +
-                    "where grade<7  and  sc not  in (Select sc from _sa where year_ta ="+ school_year +")");
-            dbSETpromotion.execSQL("update _sa set level = 1 and grade = 1 where level=3 and grade = 3 and year_ta ="+ school_year +")");
-
+            school_year = getMaxSchoolYear();
+            promotion_year = getMaxSchoolYear() + 1;
+            if (school_year > 0 && promotion_year <= actual_year) {
+                //dbSET.execSQL("CREATE TABLE IF NOT EXISTS finance (_id INTEGER, _date DATE, emis INTEGER,f1 INTEGER,f2 INTEGER,f3 INTEGER,f4 INTEGER,f5 INTEGER,f6 INTEGER,f7 INTEGER,f8 INTEGER,f9 INTEGER, f10 INTEGER,f11 INTEGER,f12 INTEGER,f13 INTEGER,f14 INTEGER,flag TEXT)");
+                    dbSETpromotion.execSQL("INSERT INTO _sa (emis, sc, shift, level, grade, section, subject_assigned, year_ta)\n" +
+                            "SELECT emis, sc, shift, level, grade+1, section, subject_assigned, year_ta+1 FROM _sa\n" +
+                            "WHERE grade<7  AND year_ta = "+ school_year +" AND sc IN (SELECT sc FROM _sa WHERE year_ta ="+ school_year +" )");
+                    dbSETpromotion.execSQL("update _sa set level = 1 and grade = 1 where level=3 and grade = 3 and year_ta ="+ promotion_year +")");
+//                dbSETpromotion.execSQL("INSERT INTO _sa (emis, sc, shift, level, grade, section, subject_assigned, year_ta)\n" +
+//                        "SELECT emis, sc, shift, level, grade+1, section, subject_assigned, year_ta+1 FROM _sa\n" +
+//                        "where grade<7  and  sc not  in (Select sc from _sa where year_ta ="+ school_year +")");
+//                dbSETpromotion.execSQL("update _sa set level = 1 and grade = 1 where level=3 and grade = 3 and year_ta ="+ school_year +")");
+                toolsfncs.dialogAlertConfirm(this,getResources(),11);
+            }
         }catch (Exception e) {}
-        toolsfncs.dialogAlertConfirm(this,getResources(),11);
         //Toast.makeText(getApplication(), getResources().getString(R.string.automatic_promotion), Toast.LENGTH_SHORT).show();
         dbSETpromotion.close();
         cnSETpromotion.close();
     }
+
+    public int getMaxSchoolYear(){
+        int getMaxSchoolYearbdd=0;
+        Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
+        SQLiteDatabase dbSET = cnSET.getReadableDatabase();
+        Cursor cur_data = dbSET.rawQuery("SELECT MAX(year_ta) FROM _sa", null);
+        cur_data.moveToFirst();
+        if (cur_data.getInt(0) > 0) {
+            getMaxSchoolYearbdd = cur_data.getInt(0);
+        }
+        return getMaxSchoolYearbdd;
+    }
+
 
 
 }

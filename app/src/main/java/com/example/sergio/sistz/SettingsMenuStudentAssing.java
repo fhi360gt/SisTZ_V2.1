@@ -30,7 +30,6 @@ import com.example.sergio.sistz.mysql.DBSubjectsUtils;
 import com.example.sergio.sistz.util.toolsfncs;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -45,8 +44,9 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
     String[] _shift = {"Morning","Afternoon","Evening"};
     String[] _level = {"Primary","Secondary","Pre-Primary"};
     private String[] _grade = {"G1","G2","G3","G4","G5","G6","G7","G8"};
-    private String[] _section = {"A","B","C","D","E","F","G"};
-    public Spinner sp_shift, sp_level, sp_grade, sp_section, sp_subject;
+    private String[] _section = {"A","B","C","D","E","F","G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+    public Spinner sp_shift, sp_level, sp_grade, sp_section, sp_subject, sp_year; // se ha agregado año en asignación 07/Febrero/2018
+    ArrayList<String> list_year = new ArrayList<>();
     ArrayList<String> list_1 = new ArrayList<>();
     ArrayList<String> list_code = new ArrayList<>();
     ArrayList<String> list_subject = new ArrayList<>();
@@ -102,6 +102,7 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
         lv_subject_student = (ListView) mLinearLayout.findViewById(R.id.lv_subject_student);
         lv_subject_teacher = (ListView) mLinearLayout.findViewById(R.id.lv_subject_teacher);
 
+        sp_year = (Spinner) mLinearLayout.findViewById(R.id.sp_year); // se ha agregado año en asignación 07/Febrero/2018
         sp_shift = (Spinner) mLinearLayout.findViewById(R.id.sp_shift);
         sp_level = (Spinner) mLinearLayout.findViewById(R.id.sp_level);
         sp_grade = (Spinner) mLinearLayout.findViewById(R.id.sp_grade);
@@ -188,6 +189,31 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_history)+"' WHERE level=1 and id=10");
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_geography)+"' WHERE level=1 and id=11");
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_all)+"' WHERE level=3 and id=1");
+
+        LoadYearSpinner();
+    }
+
+    private void LoadYearSpinner(){
+        // ***************** Load Subject  if read DATABASE recordSet ****************************
+        Conexion cnSET = new Conexion(getContext(), STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
+        SQLiteDatabase dbSET = cnSET.getReadableDatabase();
+        String col_year;
+        String sql = "SELECT distinct(year_ta) FROM _sa ORDER BY year_ta DESC";
+        Cursor cur_data = dbSET.rawQuery(sql, null);
+        cur_data.moveToFirst();
+        if (cur_data.getCount()>0) {
+            do {
+                col_year = cur_data.getString(0);
+                list_year.add(col_year);
+            } while (cur_data.moveToNext());
+        }
+        ArrayAdapter<String> adap_year = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list_year);
+        sp_year.setAdapter(adap_year);
+        cur_data.close();
+        dbSET.close();
+        dbSET.close();
+
+        this.sp_year.setOnItemSelectedListener(this);
     }
     private void LoadSpinner(){
         // ***************** Load Subject  if read DATABASE recordSet ****************************
@@ -272,7 +298,8 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
             HashMap<String, String> map = new HashMap<String, String>();
             Conexion cnSET = new Conexion(getContext(), STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
             SQLiteDatabase dbSET = cnSET.getReadableDatabase();
-            final Cursor cur_data = dbSET.rawQuery("SELECT emis, sc, shift, level, grade, section, year_ta, repeater, new_entrant, new_entrant_pp FROM _sa WHERE sc=" + code + " ORDER BY emis, sc, shift,level,grade,section,year_ta", null);
+            //final Cursor cur_data = dbSET.rawQuery("SELECT emis, sc, shift, level, grade, section, year_ta, repeater, new_entrant, new_entrant_pp FROM _sa WHERE sc=" + code + " ORDER BY year_ta, emis, sc, shift,level,grade,section DESC", null);
+            final Cursor cur_data = dbSET.rawQuery("SELECT emis, sc, shift, level, grade, section, year_ta, repeater, new_entrant, new_entrant_pp FROM _sa WHERE sc=" + code + " ORDER BY year_ta DESC", null);
             //final Cursor cur_data = dbSET.rawQuery("SELECT emis, sc, shift, level, grade, section, year_ta, repeater, new_entrant, new_entrant_pp FROM _sa WHERE sc=" + code + " ORDER BY year_ta DESC, emis, sc, shift,level,grade,section", null);
             if (code == "") {code = SettingsMenuStudent.TS_code;}
             if (cur_data.moveToFirst()&& code != "") {
@@ -333,13 +360,14 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
                         TextView text5 = (TextView) view.findViewById(R.id.txt5);
 
                         // ****************** Codition for delete record *********************
-                        texto = " tc=" + String.valueOf(deleteCode) + " AND shift=" +
-                                getIndexArray(_shift, text1.getText().toString()) + " AND level=" +
-                                getIndexArray(_level, text2.getText().toString()) + " AND  grade=" +
-                                getIndexArray(_grade, text3.getText().toString()) + " AND  section=" +
-                                getIndexArray(_section, text4.getText().toString()) + " AND  year_ta=" +
-                                text5.getText().toString();
-                        //dialogAlert(3);
+                        texto = " sc=" + String.valueOf(deleteCode) + " AND year_ta=" +
+                                text1.getText().toString() + " AND shift=" +
+                                getIndexArray(_shift, text2.getText().toString()) + " AND  level=" +
+                                getIndexArray(_level, text3.getText().toString()) + " AND  grade=" +
+                                findGradeBDD(getIndexArray(_level, text3.getText().toString()), text4.getText().toString()) + " AND  section=" +
+                                getStream(text5.getText().toString());
+                        dialogAlert(3);
+                        Toast.makeText(getContext(),texto, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -372,7 +400,8 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
 //            SimpleDateFormat df = new SimpleDateFormat("Y");
             //String formattedDate = df.format(c.getTime());
             //t5 = Integer.getInteger(formattedDate);
-            t5 = c.get(Calendar.YEAR);
+            t5 = Integer.parseInt(sp_year.getSelectedItem().toString());
+            //t5 = c.get(Calendar.YEAR); // *** 07/Febrero/2018 cambia el registro de año actual, por el seleccionado en el spinner
 
             //Toast.makeText(getContext(),"SET --> " + String.valueOf(t1) + "-" + String.valueOf(t2) + "-" + String.valueOf(t3) + "-" + String.valueOf(t4) ,Toast.LENGTH_SHORT).show();
 
@@ -473,6 +502,7 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
 
     // *********** Control Alerts ************************
     public void dialogAlert(int v){
+        final int tmp_v = v;
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getContext());
         dialogo1.setTitle("Important");
         if (v == 1){dialogo1.setMessage("Are you sure want to assign student?");}
@@ -488,8 +518,12 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
         });
         dialogo1.setNegativeButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
-                aceptar();
-                //load_lv_subject_assing(SettingsMenuStudent.TS_code);
+                switch (tmp_v) {
+                    case 1: aceptar(); break;
+                    case 3: borrarRegistro();
+                            load_lv_subject_assing(SettingsMenuStudent.TS_code);
+                        break;
+                }
             }
         });
         dialogo1.show();
@@ -504,6 +538,9 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
         //finish();
     }
 
+    public void borrarRegistro(){
+       deleteRecord(texto.toString());
+    };
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -652,6 +689,39 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
         cnSET.close();
         return result;
     }
+    private int findGradeBDD(int level, String grade){
+        Conexion cnSET = new Conexion(getContext(), STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
+        SQLiteDatabase dbSET = cnSET.getReadableDatabase();
+        int result;
+        String sql = "SELECT id FROM grade WHERE level="+ level+" AND grade='"+grade+"'";
+        Cursor cur_data = dbSET.rawQuery(sql, null);
+        cur_data.moveToFirst();
+        result =  cur_data.getInt(0);
+        cur_data.close();
+        dbSET.close();
+        cnSET.close();
+        return result;
+    }
 
+    private int getStream(String str) {
+        int str_return = 0;
+        switch (str){
+            case "A": str_return=1; break;
+            case "B": str_return=2; break;
+            case "C": str_return=3; break;
+            case "D": str_return=4; break;
+            case "E": str_return=5; break;
+            case "F": str_return=6; break;
+            case "G": str_return=8; break;
+            case "H": str_return=9; break;
+            case "I": str_return=10; break;
+            case "J": str_return=11; break;
+            case "K": str_return=12; break;
+            case "L": str_return=13; break;
+            case "M": str_return=14; break;
+            case "N": str_return=15; break;
+        }
+        return str_return;
+    }
 
 }

@@ -22,7 +22,6 @@ import android.widget.RadioButton;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sergio.sistz.mysql.Conexion;
 import com.example.sergio.sistz.mysql.DBSubjectsUtils;

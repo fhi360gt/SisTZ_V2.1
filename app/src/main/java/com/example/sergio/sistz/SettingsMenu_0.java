@@ -16,7 +16,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.sergio.sistz.mysql.Conexion;
-import com.example.sergio.sistz.mysql.DBlogfunctions;
 import com.example.sergio.sistz.util.toolsfncs;
 
 import java.io.File;
@@ -148,9 +147,14 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
                 //} else {
                     //regExist = (getEMIS_code_form_a());
                 //    if (et_emis.getText().toString().equals(getEMIS_code_form_a()) || getEMIS_code_form_a() ==  "" ) {
-                        dbSET.update("ms_0", reg, "_id=1", null);
+                dbSET.update("ms_0", reg, "_id=1", null);
                 String sqlupdate = "UPDATE a SET a1='"+ et_emis.getText().toString()+"', a2='"+ et_school_name.getText().toString().replace("'","''")+"'";
-                        dbSET.execSQL(sqlupdate);
+                dbSET.execSQL(sqlupdate);
+                // Aqui empiezo a reemplazar el codigo emis de attendaces, behaviour y evaluation. Antes debe verificar que tenga datos la tabla
+                dbSET.execSQL("UPDATE attendance SET emis='"+ et_emis.getText().toString()+"'");
+                dbSET.execSQL("UPDATE evaluation SET emis='"+ et_emis.getText().toString()+"'");
+                dbSET.execSQL("UPDATE vehaviour SET emis='"+ et_emis.getText().toString()+"'");
+
                         //Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
                  //   } else {Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_w_alredyinfo) +et_emis.getText().toString() + " = "+ getEMIS_code_form_a(), Toast.LENGTH_SHORT).show();} // "Ya ingreso información con ese código..."
                 //}
