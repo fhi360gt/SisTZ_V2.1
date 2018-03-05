@@ -3,7 +3,6 @@ package com.example.sergio.sistz;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -20,28 +19,17 @@ import android.widget.RadioButton;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sergio.sistz.mysql.Conexion;
 import com.example.sergio.sistz.mysql.DBSubjectsUtils;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
-
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
-
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -62,9 +50,10 @@ public class ReportA extends Activity implements View.OnClickListener, AdapterVi
     //private String[] _grade = {"G1","G2","G3","G4","G5","G6","G7","G8"};
     private String[] _section = {"A", "B", "C", "D", "E", "F", "G"};
     //private String[] _subject_p = {"Mathematics","English","Kiswahili","French","Science","Geography","Civics","History","Vocational skills","Personality and Sports","ICT","Other"};
-    public Spinner sp_shift, sp_level, sp_grade, sp_section, sp_subject;
+    public Spinner sp_shift, sp_level, sp_grade, sp_section, sp_subject, sp_year;
     ArrayList<String> list_1 = new ArrayList<>();
     ArrayList<String> list_code = new ArrayList<>();
+    ArrayList<String> list_year = new ArrayList<>();
     ArrayList<String> list_shift = new ArrayList<>();
     ArrayList<String> list_level = new ArrayList<>();
     ArrayList<String> list_grade = new ArrayList<>();
@@ -116,6 +105,7 @@ public class ReportA extends Activity implements View.OnClickListener, AdapterVi
 
         lv_list = (ListView) findViewById(R.id.lv_list);
 
+        sp_year = (Spinner) findViewById(R.id.sp_year); // se ha agregado año en asignación 15/Febrero/2018
         sp_shift = (Spinner) findViewById(R.id.sp_shift);
         sp_level = (Spinner) findViewById(R.id.sp_level);
         sp_grade = (Spinner) findViewById(R.id.sp_grade);
@@ -282,7 +272,10 @@ public class ReportA extends Activity implements View.OnClickListener, AdapterVi
         ArrayAdapter<String> adap_section = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, _section);
         sp_section.setAdapter(adap_section);
 
+        LoadYearSpinner(); // Carga los años que aparecen con asignaciones de alumnos para extraer asistencia
+
         // ****************** if NEED ONLY read database to do DINAMIC SPINNER ***********
+        this.sp_year.setOnItemSelectedListener(this);
         this.sp_shift.setOnItemSelectedListener(this);
         this.sp_level.setOnItemSelectedListener(this);
         this.sp_grade.setOnItemSelectedListener(this);
@@ -306,9 +299,12 @@ public class ReportA extends Activity implements View.OnClickListener, AdapterVi
         String sql1 = "SELECT a.date, a.present, b.absence  FROM \n" +
                 " ( SELECT Date(date) AS date, SUM(absence) AS present  FROM attendance WHERE absence = '1' AND strftime('%Y',date)='" + school_year + "' "  + sql + " GROUP BY Date(date)  ) as a\n" +
                 " LEFT JOIN(SELECT Date(date) as date, COUNT(*) as absence FROM attendance WHERE absence = ''  AND strftime('%Y',date)='" + school_year + "' "  + sql + " GROUP BY Date(date)  ) as b ON (a.date=b.date)";
+//        String sql21 = "SELECT a.date, a.total, b.absence FROM  \n" +
+//                "( SELECT \"1\" AS _id, Date(date) AS date, sum(absence) as total  FROM attendance WHERE  strftime('%Y',date)='" + school_year + "' "  + sql + "   GROUP BY Date(date)  ) as a\n" +
+//                " LEFT JOIN (SELECT \"1\" AS _id, Date(date) as date, count(reason) as absence FROM attendance WHERE reason<>'' AND strftime('%Y',date)='" + school_year + "' "  + sql + " GROUP BY Date(date) ) as b ON (a._id=b._id and a.date=b.date )";
         String sql21 = "SELECT a.date, a.total, b.absence FROM  \n" +
-                "( SELECT \"1\" AS _id, Date(date) AS date, sum(absence) as total  FROM attendance WHERE  strftime('%Y',date)='" + school_year + "' "  + sql + "   GROUP BY Date(date)  ) as a\n" +
-                " LEFT JOIN (SELECT \"1\" AS _id, Date(date) as date, count(reason) as absence FROM attendance WHERE reason<>'' AND strftime('%Y',date)='" + school_year + "' "  + sql + " GROUP BY Date(date) ) as b ON (a._id=b._id and a.date=b.date )";
+                "( SELECT \"1\" AS _id, Date(date) AS date, sum(absence) as total  FROM attendance WHERE  strftime('%Y',date)='" + sql + "   GROUP BY Date(date)  ) as a\n" +
+                " LEFT JOIN (SELECT \"1\" AS _id, Date(date) as date, count(reason) as absence FROM attendance WHERE reason<>'' AND strftime('%Y',date)='" + sql + " GROUP BY Date(date) ) as b ON (a._id=b._id and a.date=b.date )";
 
         Cursor cur_data = dbSET.rawQuery(sql21, null);
 
@@ -425,7 +421,8 @@ public class ReportA extends Activity implements View.OnClickListener, AdapterVi
 //                        sp_level.getSelectedItem().toString() + " = " + getIndexArray(_level, sp_level.getSelectedItem().toString()) + ", " +
 //                        sp_grade.getSelectedItem().toString() + " = " + String.valueOf(sp_grade.getSelectedItemId() + 1), Toast.LENGTH_SHORT).show();
                 tv_date.setText("");
-                loadListAttendance(" AND shift=" + getIndexArray(_shift, sp_shift.getSelectedItem().toString()) +
+                loadListAttendance(sp_year.getSelectedItem().toString() + "'" +
+                                " AND shift=" + getIndexArray(_shift, sp_shift.getSelectedItem().toString()) +
                                 " AND  level=" + getIndexArray(_level, sp_level.getSelectedItem().toString()) +
                                 " AND grade=" + String.valueOf(sp_grade.getSelectedItemId() + 1) +
                                 " AND section=" + String.valueOf(sp_section.getSelectedItemId() + 1)
@@ -434,13 +431,33 @@ public class ReportA extends Activity implements View.OnClickListener, AdapterVi
                 break;
             case R.id.sp_section:
                 tv_date.setText("");
-                loadListAttendance(" AND shift=" + getIndexArray(_shift, sp_shift.getSelectedItem().toString()) +
+                loadListAttendance( sp_year.getSelectedItem().toString() + "'" +
+                                " AND shift=" + getIndexArray(_shift, sp_shift.getSelectedItem().toString()) +
                                 " AND  level=" + getIndexArray(_level, sp_level.getSelectedItem().toString()) +
                                 " AND grade=" + String.valueOf(sp_grade.getSelectedItemId() + 1) +
                                 " AND section=" + String.valueOf(sp_section.getSelectedItemId() + 1)
                 );
                 break;
+            case R.id.sp_year:
+                lv_list.clearChoices();
+                lv_list.refreshDrawableState();
+                chart.clear();
+                break;
         }
+//        Toast.makeText(getApplicationContext(), "Year=" + sp_year.getSelectedItem().toString() + "'" +
+//                " AND shift=" + getIndexArray(_shift, sp_shift.getSelectedItem().toString()) +
+//                " AND  level=" + (sp_level.getSelectedItemId() + 1) + //getIndexArray(_level, sp_level.getSelectedItem().toString()) +
+//                " AND grade=" + String.valueOf(sp_grade.getSelectedItemId() + 1) +
+//                " AND section=" + String.valueOf(sp_section.getSelectedItemId() + 1)
+//                , Toast.LENGTH_SHORT).show();
+
+        tv_date.setText("");
+        loadListAttendance( sp_year.getSelectedItem().toString() + "'" +
+                " AND shift=" + getIndexArray(_shift, sp_shift.getSelectedItem().toString()) +
+                " AND  level=" + (sp_level.getSelectedItemId() + 1) +
+                " AND grade=" + String.valueOf(sp_grade.getSelectedItemId() + 1) +
+                " AND section=" + String.valueOf(sp_section.getSelectedItemId() + 1)
+        );
 
     }
 
@@ -475,7 +492,31 @@ public class ReportA extends Activity implements View.OnClickListener, AdapterVi
         return index;
     }
 
-    // *************************** FILL SPINERR SHIFT -  LEVEL  -   GRADE  -  SECTION  - SUBJECT - **************
+    // *************************** FILL SPINERR YEAR (ADD 20180215) -  SHIFT -  LEVEL  -   GRADE  -  SECTION  - SUBJECT - **************
+    private void LoadYearSpinner(){
+        // ***************** Load Subject  if read DATABASE recordSet ****************************
+        Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
+        SQLiteDatabase dbSET = cnSET.getReadableDatabase();
+        String col_year;
+        //String sql = "SELECT distinct(year_ta) FROM _sa ORDER BY year_ta DESC";
+        String sql = "SELECT distinct(strftime('%Y',date)) FROM attendance ORDER BY date DESC";
+        Cursor cur_data = dbSET.rawQuery(sql, null);
+        cur_data.moveToFirst();
+        if (cur_data.getCount()>0) {
+            do {
+                col_year = cur_data.getString(0);
+                list_year.add(col_year);
+            } while (cur_data.moveToNext());
+        }
+        ArrayAdapter<String> adap_year = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, list_year);
+        sp_year.setAdapter(adap_year);
+        cur_data.close();
+        dbSET.close();
+        dbSET.close();
+
+        this.sp_year.setOnItemSelectedListener(this);
+    }
+
     private void fill_sp_level(String shift) {
         list_level.clear();
         Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);

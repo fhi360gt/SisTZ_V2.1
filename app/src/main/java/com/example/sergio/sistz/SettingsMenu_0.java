@@ -13,7 +13,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.example.sergio.sistz.mysql.Conexion;
 import com.example.sergio.sistz.util.toolsfncs;
@@ -113,60 +112,68 @@ public class SettingsMenu_0 extends Activity implements View.OnClickListener{
         // ***************** CONTENT TO RECORD-SET **************************
         ContentValues reg = new ContentValues();
         //if (!et_emis.getText().toString().isEmpty()  ) {  //        if (!et_emis.getText().toString().isEmpty()) {  //
-        if ((!et_emis.getText().toString().isEmpty()) && (!et_emis.getText().toString().equals("0"))) {
-            if (_IU == "I" ) {reg.put("_id",1);}
-            //reg.put("flag", _IU); sql = sql  + "ms_0;" + getEMIS_code() + delimit
-            reg.put("flag", et_school_name.getText().toString());
-            sql = sql  + "ms_0;" + et_emis.getText().toString() + delimit;
-            reg.put("emis", et_emis.getText().toString());
-            if (_col1.isChecked() == true) {reg.put("m_pp", 1); sql = sql + "1" + delimit;} else {reg.put("m_pp",0); sql = sql + "0" + delimit;}
-            if (_col2.isChecked() == true) {reg.put("m_p", 1); sql = sql + "1" + delimit;} else {reg.put("m_p",0); sql = sql + "0" + delimit;}
-            if (_col3.isChecked() == true) {reg.put("m_s", 1); sql = sql + "1" + delimit;} else {reg.put("m_s",0); sql = sql + "0" + delimit;}
-            if (_col4.isChecked() == true) {reg.put("a_pp", 1); sql = sql + "1" + delimit;} else {reg.put("a_pp",0); sql = sql + "0" + delimit;}
-            if (_col5.isChecked() == true) {reg.put("a_p", 1); sql = sql + "1" + delimit;} else {reg.put("a_p",0); sql = sql + "0" + delimit;}
-            if (_col6.isChecked() == true) {reg.put("a_s", 1); sql = sql + "1" + delimit;} else {reg.put("a_s",0); sql = sql + "0" + delimit;}
-            if (_col7.isChecked() == true) {reg.put("e_pp", 1); sql = sql + "1" + delimit;} else {reg.put("e_pp",0); sql = sql + "0" + delimit;}
-            if (_col8.isChecked() == true) {reg.put("e_p", 1); sql = sql + "1" + delimit;} else {reg.put("e_p",0); sql = sql + "0" + delimit;}
-            if (_col9.isChecked() == true) {reg.put("e_s", 1); sql = sql + "1" + delimit;} else {reg.put("e_s",0); sql = sql + "0" + delimit;}
-            sql = sql + _IU;
-            try {
-                // ****************** Fill Bitacora
+        //if ((!et_emis.getText().toString().isEmpty()) && (!et_emis.getText().toString().equals("0")) && ((!et_school_name.getText().toString().equals("") && (!et_school_name.getText().toString().isEmpty())) )) {
+        if (!et_emis.getText().toString().isEmpty() && Integer.parseInt(et_emis.getText().toString())!=0 ) {
+            if ((!et_emis.getText().toString().isEmpty()) && (Integer.parseInt(et_emis.getText().toString())!=0) && ((!et_school_name.getText().toString().equals("") && (!et_school_name.getText().toString().isEmpty())) )) {
+                if (_IU == "I" ) {reg.put("_id",1);}
+                //reg.put("flag", _IU); sql = sql  + "ms_0;" + getEMIS_code() + delimit
+                reg.put("flag", et_school_name.getText().toString());
+                sql = sql  + "ms_0;" + et_emis.getText().toString() + delimit;
+                reg.put("emis", et_emis.getText().toString());
+                if (_col1.isChecked() == true) {reg.put("m_pp", 1); sql = sql + "1" + delimit;} else {reg.put("m_pp",0); sql = sql + "0" + delimit;}
+                if (_col2.isChecked() == true) {reg.put("m_p", 1); sql = sql + "1" + delimit;} else {reg.put("m_p",0); sql = sql + "0" + delimit;}
+                if (_col3.isChecked() == true) {reg.put("m_s", 1); sql = sql + "1" + delimit;} else {reg.put("m_s",0); sql = sql + "0" + delimit;}
+                if (_col4.isChecked() == true) {reg.put("a_pp", 1); sql = sql + "1" + delimit;} else {reg.put("a_pp",0); sql = sql + "0" + delimit;}
+                if (_col5.isChecked() == true) {reg.put("a_p", 1); sql = sql + "1" + delimit;} else {reg.put("a_p",0); sql = sql + "0" + delimit;}
+                if (_col6.isChecked() == true) {reg.put("a_s", 1); sql = sql + "1" + delimit;} else {reg.put("a_s",0); sql = sql + "0" + delimit;}
+                if (_col7.isChecked() == true) {reg.put("e_pp", 1); sql = sql + "1" + delimit;} else {reg.put("e_pp",0); sql = sql + "0" + delimit;}
+                if (_col8.isChecked() == true) {reg.put("e_p", 1); sql = sql + "1" + delimit;} else {reg.put("e_p",0); sql = sql + "0" + delimit;}
+                if (_col9.isChecked() == true) {reg.put("e_s", 1); sql = sql + "1" + delimit;} else {reg.put("e_s",0); sql = sql + "0" + delimit;}
+                sql = sql + _IU;
+                try {
+                    // ****************** Fill Bitacora
 //                ContentValues Bitacora = new ContentValues();
 //                Bitacora.put("sis_sql","UPDATE a SET a2='" + et_school_name.getText().toString() + "'%U");
 //                dbSET.insert("sisupdate", null, Bitacora);
 
-                //String newBiracora ="sis_sql-> "+"UPDATE a SET a2=" + et_school_name.getText().toString() + "%U";
-                //Toast.makeText(getApplicationContext(), newBiracora, Toast.LENGTH_LONG).show();
-                //logFunctions(currentDateandTime, "SettingMenu_0", Bitacora.toString());
-                //logFunctions(currentDateandTime, "SettingMenu_0", newBiracora );
+                    //String newBiracora ="sis_sql-> "+"UPDATE a SET a2=" + et_school_name.getText().toString() + "%U";
+                    //Toast.makeText(getApplicationContext(), newBiracora, Toast.LENGTH_LONG).show();
+                    //logFunctions(currentDateandTime, "SettingMenu_0", Bitacora.toString());
+                    //logFunctions(currentDateandTime, "SettingMenu_0", newBiracora );
 
-                // ********************* Fill TABLE d
-                //if (_IU=="I") {
-                //    dbSET.insert("ms_0", null, reg); _IU="U";
+                    // ********************* Fill TABLE d
+                    //if (_IU=="I") {
+                    //    dbSET.insert("ms_0", null, reg); _IU="U";
                     //Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
-                //} else {
+                    //} else {
                     //regExist = (getEMIS_code_form_a());
-                //    if (et_emis.getText().toString().equals(getEMIS_code_form_a()) || getEMIS_code_form_a() ==  "" ) {
-                dbSET.update("ms_0", reg, "_id=1", null);
-                String sqlupdate = "UPDATE a SET a1='"+ et_emis.getText().toString()+"', a2='"+ et_school_name.getText().toString().replace("'","''")+"'";
-                dbSET.execSQL(sqlupdate);
-                // Aqui empiezo a reemplazar el codigo emis de attendaces, behaviour y evaluation. Antes debe verificar que tenga datos la tabla
-                dbSET.execSQL("UPDATE attendance SET emis='"+ et_emis.getText().toString()+"'");
-                dbSET.execSQL("UPDATE evaluation SET emis='"+ et_emis.getText().toString()+"'");
-                dbSET.execSQL("UPDATE vehaviour SET emis='"+ et_emis.getText().toString()+"'");
+                    //    if (et_emis.getText().toString().equals(getEMIS_code_form_a()) || getEMIS_code_form_a() ==  "" ) {
+                    //if ((!et_emis.getText().toString().isEmpty()) || (!et_emis.getText().toString().equals("0")) || (!et_school_name.getText().toString().equals("") || (!et_school_name.getText().toString().isEmpty()) ) ) {
+                    dbSET.update("ms_0", reg, "_id=1", null);
+                    String sqlupdate = "UPDATE a SET a1='"+ et_emis.getText().toString()+"', a2='"+ et_school_name.getText().toString().replace("'","''")+"'";
+                    dbSET.execSQL(sqlupdate);
+                    // Aqui empiezo a reemplazar el codigo emis de attendaces, behaviour y evaluation. Antes debe verificar que tenga datos la tabla
+                    dbSET.execSQL("UPDATE attendance SET emis='"+ et_emis.getText().toString()+"'");
+                    dbSET.execSQL("UPDATE evaluation SET emis='"+ et_emis.getText().toString()+"'");
+                    dbSET.execSQL("UPDATE behaviour SET emis='"+ et_emis.getText().toString()+"'");
 
-                        //Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
-                 //   } else {Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_w_alredyinfo) +et_emis.getText().toString() + " = "+ getEMIS_code_form_a(), Toast.LENGTH_SHORT).show();} // "Ya ingreso información con ese código..."
-                //}
-                toolsfncs.dialogAlertConfirm(this,getResources(),9);
-                //finish();
-            }catch (Exception e) {
-                //Toast.makeText(getApplicationContext(),"Debe ingresar al menos un registro... !!! ",Toast.LENGTH_SHORT).show();
-                toolsfncs.dialogAlertConfirm(this,getResources(),12);
+                    //Toast.makeText(getApplicationContext(), "The information has been updated!!!", Toast.LENGTH_SHORT).show();
+                    //   } else {Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_w_alredyinfo) +et_emis.getText().toString() + " = "+ getEMIS_code_form_a(), Toast.LENGTH_SHORT).show();} // "Ya ingreso información con ese código..."
+                    //}
+                    toolsfncs.dialogAlertConfirm(this,getResources(),9);
+                    //}
+
+                    //finish();
+                }catch (Exception e) {
+                    //Toast.makeText(getApplicationContext(),"Debe ingresar al menos un registro... !!! ",Toast.LENGTH_SHORT).show();
+                    toolsfncs.dialogAlertConfirm(this,getResources(),12);
+                }
+            } else {
+                toolsfncs.dialogAlertConfirm(this,getResources(),15);
             }
         } else {
-            Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_w_a), Toast.LENGTH_SHORT).show(); // "Enter Scool EMIS Code ... !!! "
-
+            //Toast.makeText(getApplicationContext(), getResources().getString(R.string.str_w_a), Toast.LENGTH_SHORT).show(); // "Enter Scool EMIS Code ... !!! "
+            toolsfncs.dialogAlertConfirm(this,getResources(),14);
         }
 
         dbSET.close();

@@ -8,20 +8,13 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.DrawableRes;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -250,14 +243,24 @@ public class Wizard extends Activity implements View.OnClickListener {
 
         switch (fl_location){
 
-            case 1: ll_wizard.setBackgroundResource(R.drawable.w_step1); fl_part1.setVisibility(View.VISIBLE); break;
-            case 2: ll_wizard.setBackgroundResource(R.drawable.w_step2); fl_part2.setVisibility(View.VISIBLE); break;
-            case 3: ll_wizard.setBackgroundResource(R.drawable.w_step3); fl_part3.setVisibility(View.VISIBLE); break;
+            // Enter EMIS Code
+            case 1: ll_wizard.setBackgroundResource(R.drawable.w_step1); fl_part1.setVisibility(View.VISIBLE);
+                    if (Integer.parseInt(et_emis.getText().toString()) <0 && fl_location < 1) {fl_location=1;}
+                    break;
+            // Enter School Name y valida si el EMIS Code es valido
+            case 2: if (Integer.parseInt(et_emis.getText().toString()) >0) {ll_wizard.setBackgroundResource(R.drawable.w_step2); fl_part2.setVisibility(View.VISIBLE);}
+                    else {fl_location=1; fl_part2.setVisibility(View.GONE); ll_wizard.setBackgroundResource(R.drawable.w_step1); fl_part1.setVisibility(View.VISIBLE);}
+                    break;
+            // Valida que el School name no vaya vacio
+            case 3: if ( !et_school_name.getText().toString().isEmpty()) {ll_wizard.setBackgroundResource(R.drawable.w_step3); fl_part3.setVisibility(View.VISIBLE);}
+                    else {fl_location=2; fl_part3.setVisibility(View.GONE); ll_wizard.setBackgroundResource(R.drawable.w_step2); fl_part2.setVisibility(View.VISIBLE);}
+                    break;
             case 4: ll_wizard.setBackgroundResource(R.drawable.w_step4); fl_part4.setVisibility(View.VISIBLE); break;
             //case 5: ll_wizard.setBackgroundResource(R.drawable.w_step4); fl_part4.setVisibility(View.VISIBLE); break;
             //case 6: ll_wizard.setBackgroundResource(R.drawable.w_step5); fl_part5.setVisibility(View.VISIBLE); break;
             case 5: ll_wizard.setBackgroundResource(R.drawable.w_step6); fl_part5.setVisibility(View.VISIBLE); break;
         }
+        Toast.makeText(this, String.valueOf(fl_location), Toast.LENGTH_SHORT).show();
     }
 
     // *********** Control Alerts ************************

@@ -101,44 +101,44 @@
             <!--</FrameLayout>-->
 
             <FrameLayout
+                android:id="@+id/fl_part1"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:visibility="gone"
-                android:id="@+id/fl_part1"
-                android:transitionGroup="false">
+                android:transitionGroup="false"
+                android:visibility="gone">
 
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
+                    android:orientation="vertical"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:weightSum="1"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:weightSum="1">
 
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".63"
                         android:layout_marginBottom="50dp"
+                        android:layout_weight=".63"
                         android:gravity="bottom"
+                        android:orientation="horizontal"
                         android:weightSum="1">
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight=".3"></LinearLayout>
+                            android:layout_weight=".3"
+                            android:orientation="vertical"></LinearLayout>
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight=".7"
-                            android:gravity="bottom">
+                            android:gravity="bottom"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -152,354 +152,354 @@
                     </LinearLayout>
 
                     <EditText
+                        android:id="@+id/et_emis"
                         android:layout_width="150dp"
-                        android:layout_height="wrap_content"
 
-                        android:textSize="25sp"
-                        android:textColor="#020202"
-                        android:background="@drawable/get_collect"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:background="@drawable/get_collect"
                         android:inputType="number"
-                        android:textStyle="bold"
-                        android:id="@+id/et_emis" />
+                        android:textColor="#020202"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/fl_part2"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:visibility="gone"
-                android:id="@+id/fl_part2">
+                android:visibility="gone">
 
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
+                    android:orientation="vertical"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:weightSum="1">
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="50dp"
                         android:layout_weight=".63"
                         android:gravity="bottom"
-                        android:layout_marginBottom="50dp"
+                        android:orientation="horizontal"
                         android:weightSum="1">
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight=".3" />
+                            android:layout_weight=".3"
+                            android:orientation="vertical" />
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight=".7"
-                            android:gravity="bottom">
+                            android:gravity="bottom"
+                            android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="32dp"
                                 android:text="@string/str_w_b"
                                 android:textColor="#1a1a1a"
                                 android:textSize="25dp"
-                                android:textStyle="bold"
-                                android:layout_marginLeft="32dp" />
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                     </LinearLayout>
 
                     <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:textSize="25sp"
-                        android:textColor="#020202"
-                        android:background="@drawable/get_collect"
-                        android:textStyle="bold"
-                        android:inputType="textCapSentences"
-                        android:layout_gravity="top|left"
-                        android:gravity="top|left"
                         android:id="@+id/et_school_name"
-                        android:layout_weight="0.02" />
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|left"
+                        android:layout_weight="0.02"
+                        android:background="@drawable/get_collect"
+                        android:gravity="top|left"
+                        android:inputType="textCapSentences"
+                        android:textColor="#020202"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/fl_part3"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:visibility="gone"
-                android:id="@+id/fl_part3" >
+                android:visibility="gone">
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
+                    android:orientation="vertical"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
                     android:weightSum="1">
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight=".59"
-                        android:weightSum="1"
-                        android:gravity="bottom">
+                        android:gravity="bottom"
+                        android:orientation="vertical"
+                        android:weightSum="1">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/str_w_c"
                             android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginRight="20dp"
+                            android:text="@string/str_w_c"
                             android:textColor="#1a1a1a"
                             android:textSize="25dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="120dp"
-                            android:layout_marginRight="20dp" />
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight=".34"
+                        android:orientation="horizontal"
                         android:weightSum="1">
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="fill_parent"
-                            android:layout_weight=".45"></LinearLayout>
+                            android:layout_weight=".45"
+                            android:orientation="vertical"></LinearLayout>
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
-                            android:layout_weight="0.6" >
+                            android:layout_weight="0.6"
+                            android:orientation="vertical">
 
                             <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/pp"
                                 android:id="@+id/_col1"
-                                android:textStyle="bold"
-                                android:textSize="23dp"
-                                android:textColor="#010101"
-                                android:layout_marginLeft="10dp"
-                                android:paddingLeft="10dp" />
-
-                            <CheckBox
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/p"
-                                android:id="@+id/_col2"
-                                android:textStyle="bold"
-                                android:textSize="23dp"
-                                android:textColor="#010101"
-                                android:layout_marginLeft="10dp"
-                                android:paddingLeft="10dp" />
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/s"
-                                android:id="@+id/_col3"
-                                android:textStyle="bold"
-                                android:textSize="23dp"
-                                android:textColor="#010101"
-                                android:layout_marginLeft="10dp"
-                                android:paddingLeft="10dp" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:visibility="gone"
-                android:id="@+id/fl_part4" >
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:weightSum="1" >
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".59"
-                        android:weightSum="1"
-                        android:gravity="bottom">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_w_d"
-                            android:layout_gravity="center_horizontal"
-                            android:textColor="#1a1a1a"
-                            android:textSize="25dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="120dp"
-                            android:layout_marginRight="20dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight=".34"
-                        android:weightSum="1" >
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="0dp"
-                            android:layout_height="fill_parent"
-                            android:layout_weight=".45" />
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="0.6" >
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/pp"
-                                android:id="@+id/_col4"
-                                android:textStyle="bold"
-                                android:textSize="23dp"
-                                android:textColor="#010101"
-                                android:layout_marginLeft="10dp"
-                                android:paddingLeft="10dp" />
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/p"
-                                android:id="@+id/_col5"
-                                android:textStyle="bold"
-                                android:textSize="23dp"
-                                android:textColor="#010101"
-                                android:layout_marginLeft="10dp"
-                                android:paddingLeft="10dp" />
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/s"
-                                android:id="@+id/_col6"
-                                android:textStyle="bold"
-                                android:textSize="23dp"
-                                android:textColor="#010101"
-                                android:layout_marginLeft="10dp"
-                                android:paddingLeft="10dp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:visibility="gone"
-                android:id="@+id/fl_part55" >
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:weightSum="1" >
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".59"
-                        android:weightSum="1"
-                        android:gravity="bottom">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_w_e"
-                            android:layout_gravity="center_horizontal"
-                            android:textColor="#1a1a1a"
-                            android:textSize="25dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="120dp"
-                            android:layout_marginRight="20dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight=".34"
-                        android:weightSum="1" >
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="0dp"
-                            android:layout_height="fill_parent"
-                            android:layout_weight=".45" />
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="0.6" >
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/pp"
-                                android:id="@+id/_col7"
-                                android:textStyle="bold"
-                                android:textSize="23dp"
-                                android:textColor="#010101"
-                                android:layout_marginLeft="10dp"
-                                android:paddingLeft="10dp" />
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/p"
-                                android:id="@+id/_col8"
-                                android:textStyle="bold"
-                                android:textSize="23dp"
-                                android:textColor="#010101"
-                                android:layout_marginLeft="10dp"
-                                android:paddingLeft="10dp" />
-
-                            <CheckBox
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/s"
-                                android:id="@+id/_col9"
-                                android:textStyle="bold"
-                                android:textSize="23dp"
-                                android:textColor="#010101"
                                 android:layout_marginLeft="10dp"
                                 android:paddingLeft="10dp"
+                                android:text="@string/pp"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold" />
+
+                            <CheckBox
+                                android:id="@+id/_col2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:paddingLeft="10dp"
+                                android:text="@string/p"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold" />
+
+                            <CheckBox
+                                android:id="@+id/_col3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:paddingLeft="10dp"
+                                android:text="@string/s"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_part4"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".59"
+                        android:gravity="bottom"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginRight="20dp"
+                            android:text="@string/str_w_d"
+                            android:textColor="#1a1a1a"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".34"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight=".45"
+                            android:orientation="vertical" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="0.6"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/_col4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:paddingLeft="10dp"
+                                android:text="@string/pp"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold" />
+
+                            <CheckBox
+                                android:id="@+id/_col5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:paddingLeft="10dp"
+                                android:text="@string/p"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold" />
+
+                            <CheckBox
+                                android:id="@+id/_col6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:paddingLeft="10dp"
+                                android:text="@string/s"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_part55"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".59"
+                        android:gravity="bottom"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="120dp"
+                            android:layout_marginRight="20dp"
+                            android:text="@string/str_w_e"
+                            android:textColor="#1a1a1a"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".34"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight=".45"
+                            android:orientation="vertical" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="0.6"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/_col7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:paddingLeft="10dp"
+                                android:text="@string/pp"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold" />
+
+                            <CheckBox
+                                android:id="@+id/_col8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:paddingLeft="10dp"
+                                android:text="@string/p"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold" />
+
+                            <CheckBox
+                                android:id="@+id/_col9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:paddingLeft="10dp"
+                                android:text="@string/s"
+                                android:textColor="#010101"
+                                android:textSize="23dp"
+                                android:textStyle="bold"
                                 android:visibility="gone" />
 
                         </LinearLayout>
@@ -508,77 +508,77 @@
             </FrameLayout>
 
             <FrameLayout
+                android:id="@+id/fl_part5"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:visibility="gone"
-                android:id="@+id/fl_part5" >
+                android:visibility="gone">
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
                     android:layout_weight=".345"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:weightSum="1"
-                    android:gravity="center_horizontal">
+                    android:weightSum="1">
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight=".65"
                         android:gravity="bottom"
+                        android:orientation="horizontal"
                         android:weightSum="1">
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight=".2"></LinearLayout>
+                            android:layout_weight=".2"
+                            android:orientation="vertical"></LinearLayout>
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight=".6"
+                            android:orientation="vertical"
                             android:weightSum="1">
 
                             <LinearLayout
-                                android:orientation="vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight=".85"></LinearLayout>
+                                android:layout_weight=".85"
+                                android:orientation="vertical"></LinearLayout>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"
                                 android:text="@string/str_w_f"
-                                android:layout_gravity="center_horizontal"
                                 android:textColor="#1a1a1a"
                                 android:textSize="25dp"
-                                android:textStyle="bold"
-                                android:gravity="center_horizontal" />
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"
                                 android:text="@string/str_w_f1"
-                                android:layout_gravity="center_horizontal"
                                 android:textColor="#1a1a1a"
                                 android:textSize="25dp"
-                                android:textStyle="bold"
-                                android:gravity="center_horizontal" />
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/str_w_g"
                                 android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"
+                                android:text="@string/str_w_g"
                                 android:textColor="#1a1a1a"
                                 android:textSize="25dp"
-                                android:textStyle="bold"
-                                android:gravity="center_horizontal" />
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -591,32 +591,32 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
                                 android:text="@string/str_w_h"
                                 android:textColor="#545454"
                                 android:textSize="21dp"
-                                android:textStyle="bold"
-                                android:gravity="center_horizontal" />
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight=".2" />
+                            android:layout_weight=".2"
+                            android:orientation="vertical" />
 
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/btn_save"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/btn_save"
-                        android:src="@drawable/w_save_and_start"
                         android:background="@drawable/w_save_and_start"
-                        android:text="@string/str_w_saveandstart"
                         android:gravity="center_vertical|center_horizontal"
-                        android:textStyle="bold"
+                        android:src="@drawable/w_save_and_start"
+                        android:text="@string/str_w_saveandstart"
+                        android:textColor="#363636"
                         android:textSize="34dp"
-                        android:textColor="#363636" />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </FrameLayout>

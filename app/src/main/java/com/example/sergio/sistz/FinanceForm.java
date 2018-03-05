@@ -201,58 +201,59 @@ public class FinanceForm extends Activity implements View.OnClickListener, TextW
         // 20180213 --- se han agregado los if, para condicionar que no se graben numeros negativos.
         _col15.setText(String.valueOf(Double.valueOf(col5) * Double.valueOf(col6)));
         _col16.setText(String.valueOf(Double.valueOf(_col3.getText().toString()) - Double.valueOf(_col15.getText().toString()) ));
-        if ((Double.valueOf(_col15.getText().toString()) < (Double.valueOf(_col3.getText().toString())-Double.valueOf(_col15.getText().toString())) )){
-            tmp_update="true";
-        } else {
+//        if ((Double.valueOf(_col15.getText().toString()) < (Double.valueOf(_col3.getText().toString())-Double.valueOf(_col15.getText().toString())) )){
+//            tmp_update="true";
+//        } else {
 //            _col15.requestFocus();
 //            dialogAlert(3);
-            tmp_update="false";
-        }
+//            tmp_update="false";
+//        }
 
         _col17.setText(String.valueOf(Double.valueOf(col7) * Double.valueOf(col8)));
         _col18.setText(String.valueOf(Double.valueOf(_col16.getText().toString()) - Double.valueOf(_col17.getText().toString())));
-        if ((Double.valueOf(_col17.getText().toString()) < (Double.valueOf(_col16.getText().toString())-Double.valueOf(_col17.getText().toString())) )){
-            tmp_update="true";
-        } else {
-//            dialogAlert(3);
-            tmp_update="false";
-        }
+//        if ((Double.valueOf(_col17.getText().toString()) < (Double.valueOf(_col16.getText().toString())-Double.valueOf(_col17.getText().toString())) )){
+//            tmp_update="true";
+//        } else {
+////            dialogAlert(3);
+//            tmp_update="false";
+//        }
 
 
         _col19.setText(String.valueOf(Double.valueOf(col9) * Double.valueOf(col10)));
         _col20.setText(String.valueOf(Double.valueOf(_col18.getText().toString()) - Double.valueOf(_col19.getText().toString())));
-        if ((Double.valueOf(_col19.getText().toString()) < (Double.valueOf(_col18.getText().toString())-Double.valueOf(_col19.getText().toString())) )){
-            tmp_update="true";
-        } else {
-            //dialogAlert(3);
-            tmp_update="false";
-        }
+//        if ((Double.valueOf(_col19.getText().toString()) < (Double.valueOf(_col18.getText().toString())-Double.valueOf(_col19.getText().toString())) )){
+//            tmp_update="true";
+//        } else {
+//            //dialogAlert(3);
+//            tmp_update="false";
+//        }
 
 
         _col21.setText(String.valueOf(Double.valueOf(col11) * Double.valueOf(col12)));
         _col22.setText(String.valueOf(Double.valueOf(_col20.getText().toString()) - Double.valueOf(_col21.getText().toString())));
-        if ((Double.valueOf(_col21.getText().toString()) < (Double.valueOf(_col20.getText().toString())-Double.valueOf(_col21.getText().toString())) )){
-            tmp_update="true";
-        } else {
-            //dialogAlert(3);
-            tmp_update="false";
-        }
+//        if ((Double.valueOf(_col21.getText().toString()) < (Double.valueOf(_col20.getText().toString())-Double.valueOf(_col21.getText().toString())) )){
+//            tmp_update="true";
+//        } else {
+//            //dialogAlert(3);
+//            tmp_update="false";
+//        }
 
 
         _col23.setText(String.valueOf(Double.valueOf(col13) * Double.valueOf(col14)));
         _col24.setText(String.valueOf(Double.valueOf(_col22.getText().toString()) - Double.valueOf(_col23.getText().toString())));
-        if ((Double.valueOf(_col23.getText().toString()) > (Double.valueOf(_col22.getText().toString())-Double.valueOf(_col23.getText().toString())) )){
-            tmp_update="true";
-        } else {
-            //dialogAlert(3);
-            tmp_update="false";
-        }
+//        if ((Double.valueOf(_col23.getText().toString()) > (Double.valueOf(_col22.getText().toString())-Double.valueOf(_col23.getText().toString())) )){
+//            tmp_update="true";
+//        } else {
+//            //dialogAlert(3);
+//            tmp_update="false";
+//        }
 
         if ((Double.valueOf(_col24.getText().toString()) < 0.00 )){
             dialogAlert(3);
             tmp_update="false";
         } else {
             _col4.setText(_col24.getText().toString());
+            tmp_update="true";
         }
 
     }
@@ -372,7 +373,7 @@ public class FinanceForm extends Activity implements View.OnClickListener, TextW
         dialogo1.setTitle(getResources().getString(R.string.str_bl_msj1));
         if (v == 1){dialogo1.setMessage(getResources().getString(R.string.str_bl_msj2));}
         if (v == 2){dialogo1.setMessage("Are you sure to quit?");}
-        if (v == 3){dialogo1.setMessage("The cost > Balance!!!");}
+        if (v == 3){dialogo1.setMessage(getResources().getString(R.string.str_balance));}
         dialogo1.setCancelable(false);
         dialogo1.setPositiveButton(getResources().getString(R.string.str_bl_msj3), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {

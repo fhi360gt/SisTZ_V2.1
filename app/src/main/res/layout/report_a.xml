@@ -135,8 +135,21 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="@string/str_g_year"
+                            android:layout_weight=".2"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textStyle="bold"
+                            android:textColor="#4b4b4b"
+                            android:textSize="20dp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="@string/str_g_shift"
-                            android:layout_weight=".25"
+                            android:layout_weight=".2"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:textStyle="bold"
@@ -148,7 +161,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="@string/str_g_level"
-                            android:layout_weight=".25"
+                            android:layout_weight=".2"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:textStyle="bold"
@@ -160,7 +173,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="@string/str_g_grade"
-                            android:layout_weight=".25"
+                            android:layout_weight=".2"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:textStyle="bold"
@@ -172,13 +185,14 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="@string/str_g_stream"
-                            android:layout_weight=".25"
+                            android:layout_weight=".2"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
                             android:textStyle="bold"
                             android:textColor="#4b4b4b"
                             android:textSize="20dp"
                             android:visibility="visible" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -191,8 +205,16 @@
                         <Spinner
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:id="@+id/sp_year"
+                            android:layout_weight=".2"
+                            android:background="@drawable/util_spinner"
+                            android:layout_margin="5dp" />
+
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
                             android:id="@+id/sp_shift"
-                            android:layout_weight=".25"
+                            android:layout_weight=".2"
                             android:background="@drawable/util_spinner"
                             android:layout_margin="5dp" />
 
@@ -200,7 +222,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:id="@+id/sp_level"
-                            android:layout_weight=".25"
+                            android:layout_weight=".2"
                             android:background="@drawable/util_spinner"
                             android:layout_margin="5dp" />
 
@@ -208,7 +230,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:id="@+id/sp_grade"
-                            android:layout_weight=".25"
+                            android:layout_weight=".2"
                             android:background="@drawable/util_spinner"
                             android:layout_margin="5dp" />
 
@@ -216,7 +238,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:id="@+id/sp_section"
-                            android:layout_weight=".25"
+                            android:layout_weight=".2"
                             android:background="@drawable/util_spinner"
                             android:layout_margin="5dp"
                             android:visibility="visible" />

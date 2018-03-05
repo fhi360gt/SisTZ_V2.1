@@ -275,7 +275,10 @@ public class SettingsMenuStaffAssing extends Fragment implements View.OnClickLis
             Conexion cnSET = new Conexion(getContext(), STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
             SQLiteDatabase dbSET = cnSET.getReadableDatabase();
             //Cursor cur_data = dbSET.rawQuery("SELECT emis, tc, shift, level, grade, section, subject FROM _ta WHERE tc=" + code + " and year_ta= " + school_year + " ORDER BY emis, tc, shift,level,grade,section,subject", null);
-            Cursor cur_data = dbSET.rawQuery("SELECT emis, tc, shift, level, grade, section, subject FROM _ta WHERE tc=" + code  + " ORDER BY rowid DESC, emis, tc, shift,level,grade,section,subject", null);
+            //Cursor cur_data = dbSET.rawQuery("SELECT emis, tc, shift, level, grade, section, subject FROM _ta WHERE tc=" + code  + " ORDER BY rowid DESC, emis, tc, shift,level,grade,section,subject", null);
+            Cursor cur_data = dbSET.rawQuery("SELECT ta.emis, ta.tc, ta.shift, ta.level, ta.grade, ta.section, ta.subject FROM _ta AS ta\n" +
+                    "INNER JOIN subject AS S ON (s.level=ta.level AND s.id=ta.subject)\n" +
+                    "WHERE ta.tc=" + code  + " ORDER BY ta.rowid DESC, ta.emis, ta.tc, ta.shift, ta.level, ta.grade, ta.section, ta.subject", null);
             if (code == "") {code = SettingsMenuStaff.TS_code;}
             if (cur_data.moveToFirst()&& code != "") {
                 do {

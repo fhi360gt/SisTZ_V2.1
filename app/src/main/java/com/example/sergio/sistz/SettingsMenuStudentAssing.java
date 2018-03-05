@@ -193,7 +193,7 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
         LoadYearSpinner();
     }
 
-    private void LoadYearSpinner(){
+    private void LoadYearSpinner(){ // Se ha agreagdo este proceso el 7/Febrero/2018
         // ***************** Load Subject  if read DATABASE recordSet ****************************
         Conexion cnSET = new Conexion(getContext(), STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
         SQLiteDatabase dbSET = cnSET.getReadableDatabase();
@@ -720,6 +720,18 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
             case "L": str_return=13; break;
             case "M": str_return=14; break;
             case "N": str_return=15; break;
+            case "O": str_return=16; break;
+            case "P": str_return=17; break;
+            case "Q": str_return=18; break;
+            case "R": str_return=19; break;
+            case "S": str_return=20; break;
+            case "T": str_return=21; break;
+            case "U": str_return=22; break;
+            case "V": str_return=23; break;
+            case "W": str_return=24; break;
+            case "X": str_return=25; break;
+            case "Y": str_return=26; break;
+            case "Z": str_return=27; break;
         }
         return str_return;
     }

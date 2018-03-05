@@ -138,7 +138,6 @@
                             android:textColor="#000000"
                             android:focusable="false"
                             android:checked="false"
-
                             android:id="@+id/rb_yes1" />
                         <RadioButton
                             android:layout_width="match_parent"
@@ -147,39 +146,44 @@
                             android:text="@string/str_g_no"
                             android:textColor="#000000"
                             android:textSize="22dp"
-
                             android:id="@+id/rb_no1" />
 
                     </RadioGroup>
 
                     <!-- xxxxxxxxxxxxxxxxx -->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_amounts"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingTop="20dp"
-                        android:layout_weight=".55"
-                        android:paddingBottom="20dp" />
-
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/et_m1"
-                        android:singleLine="false"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp"
-                        android:paddingTop="10dp"
-                        android:layout_weight=".3"
-                        android:visibility="visible" />
+                        android:id="@+id/ll_CG"
+                        android:orientation="vertical">
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_bl8_amounts"
+                            android:textSize="24dp"
+                            android:textColor="#000000"
+                            android:paddingTop="20dp"
+                            android:layout_weight=".55"
+                            android:paddingBottom="20dp" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/et_m1"
+                            android:singleLine="false"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp"
+                            android:paddingTop="10dp"
+                            android:layout_weight=".3"
+                            android:visibility="visible" />
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+                    </LinearLayout>
+
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -207,7 +211,6 @@
                             android:textColor="#000000"
                             android:focusable="false"
                             android:checked="false"
-
                             android:id="@+id/rb_yes2" />
                         <RadioButton
                             android:layout_width="match_parent"
@@ -216,36 +219,42 @@
                             android:text="@string/str_g_no"
                             android:textColor="#000000"
                             android:textSize="22dp"
-
                             android:id="@+id/rb_no2" />
 
                     </RadioGroup>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_amounts"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp" />
-
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/et_m2"
-                        android:singleLine="false"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp"
-                        android:paddingTop="10dp" />
+                        android:id="@+id/ll_LGAs"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_bl8_amounts"
+                            android:textSize="24dp"
+                            android:textColor="#000000"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="20dp" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/et_m2"
+                            android:singleLine="false"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp"
+                            android:paddingTop="10dp" />
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+
+                    </LinearLayout>
+
 
                     <!-- xxxxxxxxxxxxxxxxx -->
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -272,7 +281,6 @@
                             android:textColor="#000000"
                             android:focusable="false"
                             android:checked="false"
-
                             android:id="@+id/rb_yes3" />
                         <RadioButton
                             android:layout_width="match_parent"
@@ -281,36 +289,39 @@
                             android:text="@string/str_g_no"
                             android:textColor="#000000"
                             android:textSize="22dp"
-
                             android:id="@+id/rb_no3" />
-
                     </RadioGroup>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_amounts"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp" />
-
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/et_m3"
-                        android:singleLine="false"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp"
-                        android:paddingTop="10dp" />
-
+                        android:id="@+id/ll_PGI"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_bl8_amounts"
+                            android:textSize="24dp"
+                            android:textColor="#000000"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="20dp" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/et_m3"
+                            android:singleLine="false"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp"
+                            android:paddingTop="10dp" />
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+                    </LinearLayout>
 
                     <!-- xxxxxxxxxxxxxxxxx -->
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp" />
+
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -336,7 +347,6 @@
                             android:textColor="#000000"
                             android:focusable="false"
                             android:checked="false"
-
                             android:id="@+id/rb_yes4" />
                         <RadioButton
                             android:layout_width="match_parent"
@@ -345,35 +355,39 @@
                             android:text="@string/str_g_no"
                             android:textColor="#000000"
                             android:textSize="22dp"
-
                             android:id="@+id/rb_no4" />
 
                     </RadioGroup>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_amounts"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp" />
-
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/et_m4"
-                        android:singleLine="false"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp"
-                        android:paddingTop="10dp" />
+                        android:id="@+id/ll_RG"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_bl8_amounts"
+                            android:textSize="24dp"
+                            android:textColor="#000000"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="20dp" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:id="@+id/et_m4"
+                            android:singleLine="false"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp"
+                            android:paddingTop="10dp" />
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+                    </LinearLayout>
 
                     <!-- xxxxxxxxxxxxxxxxx -->
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -400,7 +414,6 @@
                             android:textColor="#000000"
                             android:focusable="false"
                             android:checked="false"
-
                             android:id="@+id/rb_yes5" />
                         <RadioButton
                             android:layout_width="match_parent"
@@ -409,36 +422,40 @@
                             android:text="@string/str_g_no"
                             android:textColor="#000000"
                             android:textSize="22dp"
-
                             android:id="@+id/rb_no5" />
-
                     </RadioGroup>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_amounts"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp" />
-
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:singleLine="false"
-                        android:id="@+id/et_m5"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp"
-                        android:paddingTop="10dp" />
+                        android:id="@+id/ll_Comunity"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_bl8_amounts"
+                            android:textSize="24dp"
+                            android:textColor="#000000"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="20dp" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:singleLine="false"
+                            android:id="@+id/et_m5"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp"
+                            android:paddingTop="10dp" />
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+                    </LinearLayout>
+
 
                     <!-- xxxxxxxxxxxxxxxxx -->
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp" />
-
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -464,7 +481,6 @@
                             android:textColor="#000000"
                             android:focusable="false"
                             android:checked="false"
-
                             android:id="@+id/rb_yes6" />
                         <RadioButton
                             android:layout_width="match_parent"
@@ -473,41 +489,46 @@
                             android:text="@string/str_g_no"
                             android:textColor="#000000"
                             android:textSize="22dp"
-
                             android:id="@+id/rb_no6" />
-
                     </RadioGroup>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_amounts"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp" />
-
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:singleLine="false"
-                        android:id="@+id/et_m6"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp"
-                        android:paddingTop="10dp" />
-
+                        android:id="@+id/ll_Domestic"
+                        android:orientation="vertical">
                         <TextView
-                            android:layout_width="fill_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/str_bl8_j"
+                            android:text="@string/str_bl8_amounts"
                             android:textSize="24dp"
                             android:textColor="#000000"
-                            android:paddingTop="10dp"
-                            android:textStyle="bold"
+                            android:paddingTop="20dp"
                             android:paddingBottom="20dp" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:ems="10"
+                            android:singleLine="false"
+                            android:id="@+id/et_m6"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp"
+                            android:paddingTop="10dp" />
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+                    </LinearLayout>
 
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_bl8_j"
+                        android:textSize="24dp"
+                        android:textColor="#000000"
+                        android:paddingTop="10dp"
+                        android:textStyle="bold"
+                        android:paddingBottom="20dp" />
                         <RadioGroup
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
@@ -524,7 +545,6 @@
                                 android:textColor="#000000"
                                 android:focusable="false"
                                 android:checked="false"
-
                                 android:id="@+id/rb_yes7" />
                             <RadioButton
                                 android:layout_width="match_parent"
@@ -533,30 +553,38 @@
                                 android:text="@string/str_g_no"
                                 android:textColor="#000000"
                                 android:textSize="22dp"
-
                                 android:id="@+id/rb_no7" />
-
                         </RadioGroup>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/str_bl8_amounts"
-                            android:textSize="24dp"
-                            android:textColor="#000000"
-                            android:paddingTop="20dp"
-                            android:paddingBottom="20dp" />
-
-                        <EditText
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:ems="10"
-                            android:singleLine="false"
-                            android:id="@+id/et_m7"
-                            android:background="@drawable/get_collect"
-                            android:textSize="24dp"
-                            android:paddingTop="10dp" />
+                            android:id="@+id/ll_NGO"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/str_bl8_amounts"
+                                android:textSize="24dp"
+                                android:textColor="#000000"
+                                android:paddingTop="20dp"
+                                android:paddingBottom="20dp" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:ems="10"
+                                android:singleLine="false"
+                                android:id="@+id/et_m7"
+                                android:background="@drawable/get_collect"
+                                android:textSize="24dp"
+                                android:paddingTop="10dp" />
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="25dp" />
+                        </LinearLayout>.
+
 
                     </LinearLayout>
                     <!-- xxxxxxxxxxxxxxxxx -->
@@ -990,7 +1018,6 @@
                             android:textColor="#000000"
                             android:focusable="false"
                             android:checked="false"
-
                             android:id="@+id/rb_yes8" />
                         <RadioButton
                             android:layout_width="match_parent"
@@ -1006,76 +1033,75 @@
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_ifyesbywhom"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingBottom="20dp"
-                        android:textStyle="bold" />
-
-                    <RadioGroup
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="1"
-                        android:orientation="horizontal"
-                        android:paddingLeft="78dp"
-                        android:paddingTop="12dp"
-                        android:visibility="visible">
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".35"
-                            android:text="@string/str_g_government"
-                            android:textSize="22dp"
+                        android:id="@+id/ll_Books"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_bl8_ifyesbywhom"
+                            android:textSize="24dp"
                             android:textColor="#000000"
-                            android:focusable="false"
-                            android:checked="false"
+                            android:paddingBottom="20dp"
+                            android:textStyle="bold" />
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1"
+                            android:orientation="horizontal"
+                            android:paddingLeft="78dp"
+                            android:paddingTop="12dp"
+                            android:visibility="visible">
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".35"
+                                android:text="@string/str_g_government"
+                                android:textSize="22dp"
+                                android:textColor="#000000"
+                                android:focusable="false"
+                                android:checked="false"
+                                android:id="@+id/rb_g8" />
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".4"
+                                android:text="@string/str_bl8_otherspecify"
+                                android:textColor="#000000"
+                                android:textSize="22dp"
+                                android:id="@+id/rb_o8" />
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".2"
+                                android:text="@string/str_bl8_both"
+                                android:textColor="#000000"
+                                android:textSize="22dp"
+                                android:id="@+id/rb_b8" />
 
-                            android:id="@+id/rb_g8" />
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".4"
-                            android:text="@string/str_bl8_otherspecify"
-                            android:textColor="#000000"
-                            android:textSize="22dp"
-
-                            android:id="@+id/rb_o8" />
-
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".2"
-                            android:text="@string/str_bl8_both"
-                            android:textColor="#000000"
-                            android:textSize="22dp"
-                            android:id="@+id/rb_b8" />
-
-                    </RadioGroup>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp" />
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:ems="10"
-                        android:id="@+id/other1"
-                        android:layout_gravity="center_horizontal"
-                        android:singleLine="false"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp" />
+                        </RadioGroup>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+                        <EditText
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:ems="10"
+                            android:id="@+id/other1"
+                            android:layout_gravity="center_horizontal"
+                            android:singleLine="false"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp" />
+                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+                    </LinearLayout>
 
 
-                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -1118,78 +1144,73 @@
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_ifyesbywhom"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingBottom="20dp"
-                        android:textStyle="bold" />
-
-                    <RadioGroup
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="1"
-                        android:orientation="horizontal"
-                        android:paddingLeft="78dp"
-                        android:paddingTop="12dp">
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".35"
-                            android:text="@string/str_g_government"
-                            android:textSize="22dp"
+                        android:id="@+id/ll_Furniture"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_bl8_ifyesbywhom"
+                            android:textSize="24dp"
                             android:textColor="#000000"
-                            android:focusable="false"
-                            android:checked="false"
+                            android:paddingBottom="20dp"
+                            android:textStyle="bold" />
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1"
+                            android:orientation="horizontal"
+                            android:paddingLeft="78dp"
+                            android:paddingTop="12dp">
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".35"
+                                android:text="@string/str_g_government"
+                                android:textSize="22dp"
+                                android:textColor="#000000"
+                                android:focusable="false"
+                                android:checked="false"
+                                android:id="@+id/rb_g9" />
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".40"
+                                android:text="@string/str_bl8_otherspecify"
+                                android:textColor="#000000"
+                                android:textSize="22dp"
+                                android:id="@+id/rb_o9" />
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".2"
+                                android:text="@string/str_bl8_both"
+                                android:textColor="#000000"
+                                android:textSize="22dp"
+                                android:id="@+id/rb_b9" />
+                        </RadioGroup>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+                        <EditText
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:ems="10"
+                            android:id="@+id/other2"
+                            android:layout_gravity="center_horizontal"
+                            android:singleLine="false"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp"
+                            android:paddingTop="20dp" />
+                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+                    </LinearLayout>
 
-                            android:id="@+id/rb_g9" />
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".40"
-                            android:text="@string/str_bl8_otherspecify"
-                            android:textColor="#000000"
-                            android:textSize="22dp"
-
-                            android:id="@+id/rb_o9" />
-
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".2"
-                            android:text="@string/str_bl8_both"
-                            android:textColor="#000000"
-                            android:textSize="22dp"
-                            android:id="@+id/rb_b9" />
-
-                    </RadioGroup>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp" />
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:ems="10"
-                        android:id="@+id/other2"
-                        android:layout_gravity="center_horizontal"
-                        android:singleLine="false"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp"
-                        android:paddingTop="20dp" />
-
-
-                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -1216,7 +1237,6 @@
                             android:textColor="#000000"
                             android:focusable="false"
                             android:checked="false"
-
                             android:id="@+id/rb_yes10"
                             android:nestedScrollingEnabled="false" />
                         <RadioButton
@@ -1226,85 +1246,81 @@
                             android:text="@string/str_g_no"
                             android:textColor="#000000"
                             android:textSize="22dp"
-
                             android:id="@+id/rb_no10" />
-
                     </RadioGroup>
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_ifyesbywhom"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingBottom="20dp"
-                        android:textStyle="bold" />
-
-                    <RadioGroup
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="1"
-                        android:orientation="horizontal"
-                        android:paddingLeft="78dp"
-                        android:paddingTop="12dp">
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".35"
-                            android:text="@string/str_g_government"
-                            android:textSize="22dp"
+                        android:id="@+id/ll_Food"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_bl8_ifyesbywhom"
+                            android:textSize="24dp"
                             android:textColor="#000000"
-                            android:focusable="false"
-                            android:checked="false"
+                            android:paddingBottom="20dp"
+                            android:textStyle="bold" />
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1"
+                            android:orientation="horizontal"
+                            android:paddingLeft="78dp"
+                            android:paddingTop="12dp">
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".35"
+                                android:text="@string/str_g_government"
+                                android:textSize="22dp"
+                                android:textColor="#000000"
+                                android:focusable="false"
+                                android:checked="false"
+                                android:id="@+id/rb_g10" />
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".40"
+                                android:text="@string/str_bl8_otherspecify"
+                                android:textColor="#000000"
+                                android:textSize="22dp"
+                                android:id="@+id/rb_o10" />
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".2"
+                                android:text="@string/str_bl8_both"
+                                android:textColor="#000000"
+                                android:textSize="22dp"
+                                android:id="@+id/rb_b10" />
+                        </RadioGroup>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+                        <EditText
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:ems="10"
+                            android:id="@+id/other3"
+                            android:layout_gravity="center_horizontal"
+                            android:singleLine="false"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp"
+                            android:paddingTop="20dp" />
 
-                            android:id="@+id/rb_g10" />
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".40"
-                            android:text="@string/str_bl8_otherspecify"
-                            android:textColor="#000000"
-                            android:textSize="22dp"
-
-                            android:id="@+id/rb_o10" />
-
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".2"
-                            android:text="@string/str_bl8_both"
-                            android:textColor="#000000"
-                            android:textSize="22dp"
-                            android:id="@+id/rb_b10" />
-
-                    </RadioGroup>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp" />
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:ems="10"
-                        android:id="@+id/other3"
-                        android:layout_gravity="center_horizontal"
-                        android:singleLine="false"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp"
-                        android:paddingTop="20dp" />
+                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 
-                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+                    </LinearLayout>
 
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -1348,76 +1364,73 @@
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_ifyesbywhom"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingBottom="20dp"
-                        android:textStyle="bold" />
-
-                    <RadioGroup
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="1"
-                        android:orientation="horizontal"
-                        android:paddingLeft="78dp"
-                        android:paddingTop="12dp">
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".35"
-                            android:text="@string/str_g_government"
-                            android:textSize="22dp"
+                        android:id="@+id/ll_Supplies"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_bl8_ifyesbywhom"
+                            android:textSize="24dp"
                             android:textColor="#000000"
-                            android:focusable="false"
-                            android:checked="false"
+                            android:paddingBottom="20dp"
+                            android:textStyle="bold" />
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1"
+                            android:orientation="horizontal"
+                            android:paddingLeft="78dp"
+                            android:paddingTop="12dp">
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".35"
+                                android:text="@string/str_g_government"
+                                android:textSize="22dp"
+                                android:textColor="#000000"
+                                android:focusable="false"
+                                android:checked="false"
+                                android:id="@+id/rb_g11" />
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".40"
+                                android:text="@string/str_bl8_otherspecify"
+                                android:textColor="#000000"
+                                android:textSize="22dp"
+                                android:id="@+id/rb_o11" />
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".2"
+                                android:text="@string/str_bl8_both"
+                                android:textColor="#000000"
+                                android:textSize="22dp"
+                                android:id="@+id/rb_b11" />
+                        </RadioGroup>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+                        <EditText
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:ems="10"
+                            android:id="@+id/other4"
+                            android:layout_gravity="center_horizontal"
+                            android:singleLine="false"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp"
+                            android:paddingTop="20dp" />
+                        <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp" />
+                    </LinearLayout>
 
-                            android:id="@+id/rb_g11" />
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".40"
-                            android:text="@string/str_bl8_otherspecify"
-                            android:textColor="#000000"
-                            android:textSize="22dp"
-
-                            android:id="@+id/rb_o11" />
-
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".2"
-                            android:text="@string/str_bl8_both"
-                            android:textColor="#000000"
-                            android:textSize="22dp"
-                            android:id="@+id/rb_b11" />
-
-                    </RadioGroup>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp" />
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:ems="10"
-                        android:id="@+id/other4"
-                        android:layout_gravity="center_horizontal"
-                        android:singleLine="false"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp"
-                        android:paddingTop="20dp" />
-
-                    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp" />
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -1427,7 +1440,6 @@
                         android:textColor="#000000"
                         android:textStyle="bold"
                         android:paddingBottom="10dp" />
-
                     <RadioGroup
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
@@ -1444,7 +1456,6 @@
                             android:textColor="#000000"
                             android:focusable="false"
                             android:checked="false"
-
                             android:id="@+id/rb_yes12" />
                         <RadioButton
                             android:layout_width="match_parent"
@@ -1453,77 +1464,74 @@
                             android:text="@string/str_g_no"
                             android:textColor="#000000"
                             android:textSize="22dp"
-
                             android:id="@+id/rb_no12" />
-
                     </RadioGroup>
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/str_bl8_ifyesbywhom"
-                        android:textSize="24dp"
-                        android:textColor="#000000"
-                        android:paddingBottom="20dp"
-                        android:textStyle="bold" />
-
-                    <RadioGroup
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="1"
-                        android:orientation="horizontal"
-                        android:paddingLeft="78dp"
-                        android:paddingTop="12dp">
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".35"
-                            android:text="@string/str_g_government"
-                            android:textSize="22dp"
+                        android:id="@+id/ll_Training"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/str_bl8_ifyesbywhom"
+                            android:textSize="24dp"
                             android:textColor="#000000"
-                            android:focusable="false"
-                            android:checked="false"
+                            android:paddingBottom="20dp"
+                            android:textStyle="bold" />
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="1"
+                            android:orientation="horizontal"
+                            android:paddingLeft="78dp"
+                            android:paddingTop="12dp">
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".35"
+                                android:text="@string/str_g_government"
+                                android:textSize="22dp"
+                                android:textColor="#000000"
+                                android:focusable="false"
+                                android:checked="false"
+                                android:id="@+id/rb_g12" />
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".40"
+                                android:text="@string/str_bl8_otherspecify"
+                                android:textColor="#000000"
+                                android:textSize="22dp"
+                                android:id="@+id/rb_o12" />
+                            <RadioButton
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".2"
+                                android:text="@string/str_bl8_both"
+                                android:textColor="#000000"
+                                android:textSize="22dp"
+                                android:id="@+id/rb_b12" />
+                        </RadioGroup>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+                        <EditText
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:ems="10"
+                            android:id="@+id/other5"
+                            android:layout_gravity="center_horizontal"
+                            android:singleLine="false"
+                            android:background="@drawable/get_collect"
+                            android:textSize="24dp"
+                            android:paddingTop="20dp" />
+                    </LinearLayout>
 
-                            android:id="@+id/rb_g12" />
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".40"
-                            android:text="@string/str_bl8_otherspecify"
-                            android:textColor="#000000"
-                            android:textSize="22dp"
-
-                            android:id="@+id/rb_o12" />
-
-                        <RadioButton
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".2"
-                            android:text="@string/str_bl8_both"
-                            android:textColor="#000000"
-                            android:textSize="22dp"
-                            android:id="@+id/rb_b12" />
-
-                    </RadioGroup>
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp" />
-
-                    <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:ems="10"
-                        android:id="@+id/other5"
-                        android:layout_gravity="center_horizontal"
-                        android:singleLine="false"
-                        android:background="@drawable/get_collect"
-                        android:textSize="24dp"
-                        android:paddingTop="20dp" />
 
                 </LinearLayout>
 

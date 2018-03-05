@@ -23,7 +23,6 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Space;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.sergio.sistz.mysql.Conexion;
 
@@ -131,11 +130,56 @@ public class SettingsMenuStudent extends Activity implements OnClickListener, Ad
         // ***************** LOCAD INFORMATION *************************
 
         actual_year = getMaxSchoolYear();
+
+        start_array();
         LoadSpinner();
 
         loadListTeacher("");
         //loadRecord();
 
+
+    }
+
+    private void start_array() {
+        _shift[0] = getResources().getString(R.string.str_g_morning);
+        _shift[1] = getResources().getString(R.string.str_g_afternoon);
+        _shift[2] = getResources().getString(R.string.str_g_evening);
+        _level[0] = getResources().getString(R.string.p);
+        _level[1] = getResources().getString(R.string.s);
+        _level[2] = getResources().getString(R.string.pp);
+
+        // ***************** Load Subject  if read DATABASE recordSet ****************************
+        Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
+        SQLiteDatabase dbSET = cnSET.getReadableDatabase();
+        dbSET.execSQL("UPDATE grade SET grade='"+getResources().getString(R.string.str_g_std1)+"' WHERE level=1 and id=1");
+        dbSET.execSQL("UPDATE grade SET grade='"+getResources().getString(R.string.str_g_std2)+"' WHERE level=1 and id=2");
+        dbSET.execSQL("UPDATE grade SET grade='"+getResources().getString(R.string.str_g_std3)+"' WHERE level=1 and id=3");
+        dbSET.execSQL("UPDATE grade SET grade='"+getResources().getString(R.string.str_g_std4)+"' WHERE level=1 and id=4");
+        dbSET.execSQL("UPDATE grade SET grade='"+getResources().getString(R.string.str_g_std5)+"' WHERE level=1 and id=5");
+        dbSET.execSQL("UPDATE grade SET grade='"+getResources().getString(R.string.str_g_std6)+"' WHERE level=1 and id=6");
+        dbSET.execSQL("UPDATE grade SET grade='"+getResources().getString(R.string.str_g_std7)+"' WHERE level=1 and id=7");
+        dbSET.execSQL("UPDATE grade SET grade='"+getResources().getString(R.string.str_g_yeari)+"' WHERE level=3 and id=1");
+        dbSET.execSQL("UPDATE grade SET grade='"+getResources().getString(R.string.str_g_yearii)+"' WHERE level=3 and id=3");
+
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_reading)+"' WHERE level=1 and id=1");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_writing)+"' WHERE level=1 and id=2");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_arithmetic)+"' WHERE level=1 and id=3");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_healt)+"' WHERE level=1 and id=4");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_games)+"' WHERE level=1 and id=5");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_religion)+"' WHERE level=1 and id=6");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_mathematics)+"' WHERE level=1 and id=7");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_english)+"' WHERE level=1 and id=8");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_science)+"' WHERE level=1 and id=9");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_history)+"' WHERE level=1 and id=10");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_geography)+"' WHERE level=1 and id=11");
+
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_all)+"' WHERE level=3 and id=1");
+
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_kiswahili)+"' WHERE level=1 and id=12");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_civics)+"' WHERE level=1 and id=13");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_vocational_skills)+"' WHERE level=1 and id=14");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_ict)+"' WHERE level=1 and id=15");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_personality)+"' WHERE level=1 and id=16");
 
     }
 
@@ -195,8 +239,14 @@ public class SettingsMenuStudent extends Activity implements OnClickListener, Ad
                     //loadListTeacher("");
                 }
             });
+        } else{
+            list_1.clear();
+            list_code.clear();
+            lv_list.clearChoices();
+            lv_list.refreshDrawableState();
+            ArrayAdapter adap_list = new ArrayAdapter(this, R.layout.row_menu_select, list_1);
+            lv_list.setAdapter(adap_list);
         }
-        lv_list.refreshDrawableState();
     }
 
     // **************** NEWENTRANT BY SHIFT-LEVEL-GRADE-AGE-SEX ********************
@@ -730,13 +780,13 @@ public class SettingsMenuStudent extends Activity implements OnClickListener, Ad
         filter_section=String.valueOf(getIndexArray(_section ,sp_section.getSelectedItem().toString()));
 
 
-        Toast.makeText(getApplicationContext(), "" +
-                        filter_shift + "-" +
-                        filter_level + "-" +
-                        filter_grade + "-" +
-                        filter_section
-                , Toast.LENGTH_SHORT).show();
-        loadListTeacher("");
+//        Toast.makeText(getApplicationContext(), "" +
+//                        filter_shift + "-" +
+//                        filter_level + "-" +
+//                        filter_grade + "-" +
+//                        filter_section
+//                , Toast.LENGTH_SHORT).show();
+       loadListTeacher("");
     }
 
     @Override
