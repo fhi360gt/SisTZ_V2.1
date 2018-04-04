@@ -66,6 +66,8 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
     TextView txt1, txt2, txt3, txt4, txt5;
     private  int t1, t2, t3, t4, t5;
     CharSequence texto;
+    Calendar calendar = Calendar.getInstance();
+    int school_year = calendar.get(Calendar.YEAR);
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -188,7 +190,18 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_science)+"' WHERE level=1 and id=9");
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_history)+"' WHERE level=1 and id=10");
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_geography)+"' WHERE level=1 and id=11");
+
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_all)+"' WHERE level=3 and id=1");
+
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_kiswahili)+"' WHERE level=1 and id=12");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_civics)+"' WHERE level=1 and id=13");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_vocational_skills)+"' WHERE level=1 and id=14");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_ict)+"' WHERE level=1 and id=15");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_personality)+"' WHERE level=1 and id=16");
+
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_social_studies)+"' WHERE level=1 and id=17");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_civics_and_moral)+"' WHERE level=1 and id=18");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_cience_and_technology)+"' WHERE level=1 and id=19");
 
         LoadYearSpinner();
     }
@@ -199,6 +212,7 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
         SQLiteDatabase dbSET = cnSET.getReadableDatabase();
         String col_year;
         String sql = "SELECT distinct(year_ta) FROM _sa ORDER BY year_ta DESC";
+
         Cursor cur_data = dbSET.rawQuery(sql, null);
         cur_data.moveToFirst();
         if (cur_data.getCount()>0) {
@@ -206,7 +220,7 @@ public class SettingsMenuStudentAssing extends Fragment implements View.OnClickL
                 col_year = cur_data.getString(0);
                 list_year.add(col_year);
             } while (cur_data.moveToNext());
-        }
+        } else {list_year.add(String.valueOf(school_year));}
         ArrayAdapter<String> adap_year = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list_year);
         sp_year.setAdapter(adap_year);
         cur_data.close();

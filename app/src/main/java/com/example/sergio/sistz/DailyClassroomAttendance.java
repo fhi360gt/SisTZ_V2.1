@@ -24,17 +24,18 @@ import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.sergio.sistz.data.AttendanceList;
 import com.example.sergio.sistz.mysql.Conexion;
+import com.example.sergio.sistz.util.DBDefinitionConnection;
 import com.example.sergio.sistz.util.toolsfncs;
-import com.google.android.gms.ads.search.SearchAdView;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Sergio on 3/21/2016.
@@ -44,7 +45,7 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
     String[] _shift = {"Morning","Afternoon","Evening"};
     String[] _level = {"Primary","Secondary","Pre-Primary"};
     private String[] _grade = {"G1","G2","G3","G4","G5","G6","G7","G8"};
-    private String[] _section = {"A","B","C","D","E","F","G"};
+    private String[] _section = {"A","B","C","D","E","F","G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     //private String[] _subject_p = {"Mathematics","English","Kiswahili","French","Science","Geography","Civics","History","Vocational skills","Personality and Sports","ICT","Other"};
     private String[] _subject_p = {"All","English","Kiswahili","French","Science","Geography","Civics","History","Vocational skills","Personality and Sports","ICT","Other"};
     ArrayList<String> list_teacher = new ArrayList<>();
@@ -74,6 +75,11 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
     //Calendar calendar = Calendar.getInstance();
     public int school_year = calendar.get(Calendar.YEAR);
 
+    private List<AttendanceList> attendance;
+
+    DBDefinitionConnection dbConn = new DBDefinitionConnection(DailyClassroomAttendance.this);
+
+    //String test1 = dbConn.testLoadEMISCode();
 
 
 
@@ -136,6 +142,10 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
 
         start_array();
         loadSpinner_teacher();
+
+        attendance = new ArrayList<AttendanceList>();
+
+        //Toast.makeText(this,"getLoadEMISCode -> " + test1,Toast.LENGTH_SHORT).show();
     }
 
     private void start_array() {
@@ -178,6 +188,10 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
         dbSET.execSQL("UPDATE subject SET subject='" + getResources().getString(R.string.str_g_vocational_skills) + "' WHERE level=1 and id=14");
         dbSET.execSQL("UPDATE subject SET subject='" + getResources().getString(R.string.str_g_ict) + "' WHERE level=1 and id=15");
         dbSET.execSQL("UPDATE subject SET subject='" + getResources().getString(R.string.str_g_personality) + "' WHERE level=1 and id=16");
+
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_social_studies)+"' WHERE level=1 and id=17");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_civics_and_moral)+"' WHERE level=1 and id=18");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_cience_and_technology)+"' WHERE level=1 and id=19");
     }
 
     private void setDateAttendance() {
@@ -328,43 +342,60 @@ public class DailyClassroomAttendance extends Activity implements AdapterView.On
         SQLiteDatabase dbSET_Attendance = cnSET_Attendance.getReadableDatabase();
         //Cursor cur_data_attendance = dbSET_Attendance.rawQuery("SELECT emis, t_id, subject, s_id, absence, reason, date FROM attendance  WHERE emis="+getEMIS_code()+" AND t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance+"'" + " AND date=" + school_year, null);
         //Cursor cur_data_attendance = dbSET_Attendance.rawQuery("SELECT emis, t_id, subject, s_id, absence, reason, date FROM attendance  WHERE  t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance+"'" + " AND date=" + school_year, null);
-        Cursor cur_data_attendance = dbSET_Attendance.rawQuery("SELECT emis, t_id, subject, s_id, absence, reason, date FROM attendance  WHERE  t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance+"'", null);
+        //String sql= "SELECT at.emis, at.t_id, at.subject, at.s_id, (ifnull(st.family,\"\") || ', ' || st.surname) AS fullname, at.absence, at.reason, at.date FROM attendance  at " +
+        String sql= "SELECT at.s_id, (ifnull(st.family,\"\") || ', ' || st.surname) AS fullname, at.absence, at.reason FROM attendance  at " +
+                "INNER JOIN student st ON (st._id=at.s_id) " +
+                "WHERE  at.t_id="+code+"  AND at.shift="+shift+"  AND at.level="+level+"  AND at.grade="+grade+"  AND at.section="+section+"  AND at.subject="+subject+" AND Date(at.date)='"+dateAttendance+"'";
+        Cursor cur_data_attendance = dbSET_Attendance.rawQuery(sql, null);
         //ts_present = cur_data_attendance.getCount();
         if (cur_data_attendance.getCount()>0) {_IU = "U";
-           //Toast.makeText(this,  "  List already exists!!!! ", Toast.LENGTH_LONG).show();
-        } else {ts_present = cur_data_attendance.getCount(); _IU = "I";}
-            //sqlcondition = " emis="+getEMIS_code()+" AND t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance +"'" + " AND date=" + school_year;
-            //sqlcondition = " t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance +"'" + " AND date=" + school_year+"'";
-             sqlcondition = " t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance +"'";
+           //Toast.makeText(this,  "  List already exists!!!! " + cur_data_attendance.getCount() , Toast.LENGTH_LONG).show();
+        } else {ts_present = cur_data_attendance.getCount(); _IU = "I";
+            sql= "SELECT  DISTINCT(s.sc), (ifnull(st.family,\"\") || ', ' || st.surname) AS fullname, 1 AS absence, 0 AS reason FROM _sa s \n" +
+                    "  INNER JOIN student st ON st._id=s.sc\n" +
+                    "  INNER JOIN  _ta t ON t.shift=s.shift AND t.level=s.level AND t.grade=s.grade and t.section=s.section \n" +
+                    "  INNER JOIN subject s2 ON  s2.level=t.level AND s2.id=t.subject\n" +
+                    "  WHERE t.tc=" + code + " and s.year_ta=" + school_year + " \n" +
+                    " AND t.shift="+shift+" AND t.level="+level+"  AND t.grade="+grade+"   AND t.section="+section+" AND t.subject="+subject+" ORDER BY st.family, st.surname";
+            cur_data_attendance = dbSET_Attendance.rawQuery(sql, null);
+        }
+        //sqlcondition = " emis="+getEMIS_code()+" AND t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance +"'" + " AND date=" + school_year;
+        //sqlcondition = " t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance +"'" + " AND date=" + school_year+"'";
+        sqlcondition = " t_id="+code+"  AND shift="+shift+"  AND level="+level+"  AND grade="+grade+"  AND section="+section+"  AND subject="+subject+" AND Date(date)='"+dateAttendance +"'";
+
         if (code != "") {
             //final String deleteCode = code;
             ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
             HashMap<String, String> map = new HashMap<String, String>();
             ArrayList<HashMap<String, String>> mylist2 = new ArrayList<HashMap<String, String>>();
             HashMap<String, String> map2 = new HashMap<String, String>();
-            Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
-            SQLiteDatabase dbSET = cnSET.getReadableDatabase();
+            //Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
+            //SQLiteDatabase dbSET = cnSET.getReadableDatabase();
             //Cursor cur_data = dbSET.rawQuery("SELECT  s.sc, (st.givenname || ', ' || st.surname) AS fullname, s2.subject FROM _sa s \n" +
-            Cursor cur_data = dbSET.rawQuery("SELECT  DISTINCT(s.sc), (ifnull(st.family,\"\") || ', ' || st.surname) AS fullname, s2.subject FROM _sa s \n" +
-                    "  INNER JOIN student st ON st._id=s.sc\n" +
-                    "  INNER JOIN  _ta t ON t.shift=s.shift AND t.level=s.level AND t.grade=s.grade and t.section=s.section \n" +
-                    "  INNER JOIN subject s2 ON  s2.level=t.level AND s2.id=t.subject\n" +
-                    "  WHERE t.tc=" + code + " and s.year_ta=" + school_year + " \n" +
-                    " AND t.shift="+shift+" AND t.level="+level+"  AND t.grade="+grade+"   AND t.section="+section+" AND t.subject="+subject+" ORDER BY st.family, st.surname", null);
-            cur_data.moveToFirst();
+//            Cursor cur_data = dbSET.rawQuery("SELECT  DISTINCT(s.sc), (ifnull(st.family,\"\") || ', ' || st.surname) AS fullname, s2.subject FROM _sa s \n" +
+//                    "  INNER JOIN student st ON st._id=s.sc\n" +
+//                    "  INNER JOIN  _ta t ON t.shift=s.shift AND t.level=s.level AND t.grade=s.grade and t.section=s.section \n" +
+//                    "  INNER JOIN subject s2 ON  s2.level=t.level AND s2.id=t.subject\n" +
+//                    "  WHERE t.tc=" + code + " and s.year_ta=" + school_year + " \n" +
+//                    " AND t.shift="+shift+" AND t.level="+level+"  AND t.grade="+grade+"   AND t.section="+section+" AND t.subject="+subject+" ORDER BY st.family, st.surname", null);
+            cur_data_attendance.moveToFirst();
             //if (cur_data.moveToFirst()&& code != "") {
-            if (cur_data.getCount() > 0) {
+            if (cur_data_attendance.getCount() > 0) {
                 do {
                     map = new HashMap<String, String>();
-                    map.put("code", String.valueOf(cur_data.getInt(0)));
-                    map.put("fullname", cur_data.getString(1));
+                    map.put("code", String.valueOf(cur_data_attendance.getInt(0)));
+                    map.put("fullname", cur_data_attendance.getString(1));
+//                    map.put("absence", cur_data_attendance.getString(2));
+//                    map.put("reason", cur_data_attendance.getString(3));
                     //map.put("subject", cur_data.getString(2));
                     mylist.add(map);
                 }
-                while (cur_data.moveToNext());
+                while (cur_data_attendance.moveToNext());
 
 
+                //ArrayAdapter Attendance = new ArrayAdapter(AttendanceList)
                 SimpleAdapter mSchedule = new SimpleAdapter(this, mylist, R.layout.row_list_assing3,
+                        //new String[]{"code", "fullname","absence","reason"}, new int[]{R.id.txt1, R.id.txt2, R.id.cb_absence, R.id.sp_reason});
                         new String[]{"code", "fullname"}, new int[]{R.id.txt1, R.id.txt2});
                 lv_attendance.setAdapter(mSchedule);
 

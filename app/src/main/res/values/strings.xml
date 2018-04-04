@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SIS TZ 2.0.6a</string>
+    <string name="app_name">SIS TZ 2.0.6b</string>
 
     <string name="action_settings1">@string/str_s_tv1</string>
     <string name="action_settings2">@string/str_s_tv2</string>
@@ -12,7 +13,7 @@
     <string name="action_settings9">@string/str_s_tv6</string>
     <string name="action_settings10">@string/str_s_tv10</string>
 
-    <string name="SIS">School Information System 2.0.6a</string>
+    <string name="SIS">School Information System 2.0.6b</string>
     <string name="pp">Pre-Primary</string>
     <string name="p">Primary</string>
     <string name="s">Secondary</string>
@@ -200,7 +201,7 @@
     <string name="str_bl3_p3">14. Writing</string>
     <string name="str_bl3_p4">15. Artithmetic</string>
     <string name="str_bl3_p5">16. Health and Environment Education</string>
-    <string name="str_bl3_p6"><![CDATA[17. Games, Sports and Fine \& Performing Art]]></string>
+    <string name="str_bl3_p6">17. Games, Sports and Fine and Performing Art</string>
     <string name="str_bl3_q">18. Other</string>
     <string name="str_bl3_r">19. How often do your students use the textbooks in the classroom?</string>
     <string name="str_bl3_s">Language Arts (LA)</string>
@@ -660,5 +661,9 @@
     <string name="str_g_warning">Warning</string>
     <string name="str_g_change_emis_code_confirm">You are about to save your changes. This will affect the structure of the database. Press Cancel if you are not sure, otherwise press Confirm to save changes.</string>
     <string name="str_balance">The balance is lower 0.00  </string>
+    <string name="str_g_social_studies">Social Studies</string>
+    <string name="str_g_civics_and_moral">Civics and Moral</string>
+    <string name="str_g_cience_and_technology">Science and Technology</string>
+
 
 </resources>

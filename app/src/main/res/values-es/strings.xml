@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SIS TZ 2.0.6a</string>
+    <string name="app_name">SIS TZ 2.0.6b</string>
     <string name="action_settings1">Configuración de la escuela</string>
     <string name="action_settings2">Configuración del administrador</string>
     <string name="action_settings4">Buscar actualizaciones ...</string>
@@ -18,7 +18,7 @@
     <string name="str_s_tv5">Recuperación</string>
     <string name="str_s_tv6">Lenguaje</string>
     <string name="str_s_tv7">Acerca del SIS</string>
-    <string name="SIS">Sistema de Información de Escuelas 2.0.6a</string>
+    <string name="SIS">Sistema de Información de Escuelas 2.0.6b</string>
     <string name="str_sw">Kiswahili</string>
     <string name="p">Primaria</string>
     <string name="pp">Pre-Primaria</string>
@@ -402,7 +402,7 @@
     <string name="str_bl3_p3">14. Escritura</string>
     <string name="str_bl3_p4">15. Aritmética</string>
     <string name="str_bl3_p5">16. Salud y Educación para el Medio Ambiente</string>
-    <string name="str_bl3_p6"><![CDATA[17. Juegos, Deportes y Fine \& Arte escénico]]></string>
+    <string name="str_bl3_p6">17. Juegos, Deportes y Fine / Arte escénico</string>
     <string name="str_s_tv10">Inicializar base de datos</string>
     <string name="str_g_msj11">¿Seguro que quiere inicializar la base de datos?</string>
     <string name="str_g_msj12">Si necesita inicializar la base de datos, contacte al administrador</string>
@@ -576,5 +576,8 @@
     <string name="str_g_change_emis_code_confirm">Estás a punto de guardar los cambios. Esto afectará a la estructura de la base de datos. Pulse Cancelar si no está seguro, de lo contrario pulse Confirmar para guardar los cambios.</string>
     <string name="str_g_warning">Advertencia</string>
     <string name="str_balance">El saldo es menor 0.00</string>
+    <string name="str_g_social_studies">Estudios Sociales</string>
+    <string name="str_g_civics_and_moral">Moral y Civica</string>
+    <string name="str_g_cience_and_technology">Ciencia y Tecnología</string>
 
 </resources>

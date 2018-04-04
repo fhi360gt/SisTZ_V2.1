@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SIS TZ 2.0.6a</string>
-    <string name="SIS">Mfumo wa Taarifa za Shule 2.0.6a</string>
+    <string name="app_name">SIS TZ 2.0.6b</string>
+    <string name="SIS">Mfumo wa Taarifa za Shule 2.0.6b</string>
     <string name="str_en">English</string>
     <string name="str_es">Spanish</string>
     <string name="action_settings1">Mpangilio wa Shule</string>
@@ -576,6 +576,9 @@
     <string name="str_g_warning">Onyo</string>
     <string name="str_ff_i1">Matumizi ya Ruzuku</string>
     <string name="str_balance">Usawa ni chini 0.00</string>
+    <string name="str_g_social_studies">Masomo ya kijamii</string>
+    <string name="str_g_civics_and_moral">Jamii na Maadili</string>
+    <string name="str_g_cience_and_technology">Sayansi na Teknolojia</string>
 
 
 </resources>

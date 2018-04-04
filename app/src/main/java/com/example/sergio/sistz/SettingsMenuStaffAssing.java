@@ -202,6 +202,10 @@ public class SettingsMenuStaffAssing extends Fragment implements View.OnClickLis
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_ict)+"' WHERE level=1 and id=15");
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_personality)+"' WHERE level=1 and id=16");
 
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_social_studies)+"' WHERE level=1 and id=17");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_civics_and_moral)+"' WHERE level=1 and id=18");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_cience_and_technology)+"' WHERE level=1 and id=19");
+
     }
 
     private void LoadSpinner(String code){
@@ -349,7 +353,11 @@ public class SettingsMenuStaffAssing extends Fragment implements View.OnClickLis
         t2 = getIndexArray(_level, sp_level.getSelectedItem().toString());
         t3 = sp_grade.getSelectedItemPosition()+1;
         t4 = sp_section.getSelectedItemPosition()+1;
-        if (t2==1 && (t3==3 || t3==4 ) || t3==5 || t3==6 || t3==7) {t5 = sp_subject.getSelectedItemPosition()+6;}
+        //if (t2==1 && (t3==3 || t3==4 ) || t3==5 || t3==6 || t3==7) {t5 = sp_subject.getSelectedItemPosition()+6;}
+        if ((t3==3 || t3==4) && (sp_subject.getSelectedItemPosition()==0 || sp_subject.getSelectedItemPosition()==1) ) {t5 = sp_subject.getSelectedItemPosition()+7;}
+        else if ((t3==3 || t3==4) && sp_subject.getSelectedItemPosition()==2  ) {t5 = sp_subject.getSelectedItemPosition()+10;}
+        else if ((t3==3 || t3==4) && sp_subject.getSelectedItemPosition()>2  ) {t5 = sp_subject.getSelectedItemPosition()+14;}
+        else if (t3==5 || t3==6 || t3==7  ) {t5 = sp_subject.getSelectedItemPosition()+7;}
         else {t5 = sp_subject.getSelectedItemPosition()+1;}
         sqlcondition = " tc=" + code + " AND shift=" + t1 + " AND level=" + t2 + " AND grade=" + t3 + " AND section=" + t4 + " AND subject=" + t5;
 
@@ -578,8 +586,11 @@ public class SettingsMenuStaffAssing extends Fragment implements View.OnClickLis
         String col_subject;
         String complementSQL = "";
         //Toast.makeText(getContext(),"Grado... " + grade.toString(), Toast.LENGTH_SHORT).show();
-        if (grade.equals(getResources().getString(R.string.str_g_std1)) || grade.equals(getResources().getString(R.string.str_g_std2)) ) {complementSQL=" AND id IN (1,2,3,4,5,6)";}
-        else if (grade.equals(getResources().getString(R.string.str_g_std3)) || grade.equals(getResources().getString(R.string.str_g_std4)) || grade.equals(getResources().getString(R.string.str_g_std5)) || grade.equals(getResources().getString(R.string.str_g_std6)) || grade.equals(getResources().getString(R.string.str_g_std7)) ) {complementSQL=" AND id IN (6,7,8,9,10,11,12,13,14,15,16)";}
+//        if (grade.equals(getResources().getString(R.string.str_g_std1)) || grade.equals(getResources().getString(R.string.str_g_std2)) ) {complementSQL=" AND id IN (1,2,3,4,5,6)";}
+//        else if (grade.equals(getResources().getString(R.string.str_g_std3)) || grade.equals(getResources().getString(R.string.str_g_std4)) || grade.equals(getResources().getString(R.string.str_g_std5)) || grade.equals(getResources().getString(R.string.str_g_std6)) || grade.equals(getResources().getString(R.string.str_g_std7)) ) {complementSQL=" AND id IN (6,7,8,9,10,11,12,13,14,15,16)";}
+        if (grade.equals(getResources().getString(R.string.str_g_std1)) || grade.equals(getResources().getString(R.string.str_g_std2)) ) {complementSQL=" AND id IN (1,2,3,4,5)";}
+        else if (grade.equals(getResources().getString(R.string.str_g_std3)) || grade.equals(getResources().getString(R.string.str_g_std4))  ) {complementSQL=" AND id IN (7,8,12,17,18,19)";}
+        else if (grade.equals(getResources().getString(R.string.str_g_std5)) || grade.equals(getResources().getString(R.string.str_g_std6)) || grade.equals(getResources().getString(R.string.str_g_std7)) ) {complementSQL=" AND id IN (7,8,9,10,11,12,13,14,15,16)";}
         else {complementSQL="";}
         //if (grade.equals("STD 3")) {complementSQL=" AND id>1";} else {complementSQL="";}
         String sql = "SELECT id, subject FROM subject WHERE level="+ getIndexArray(_level, level ) + complementSQL;

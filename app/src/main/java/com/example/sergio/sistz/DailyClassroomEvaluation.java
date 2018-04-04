@@ -25,7 +25,6 @@ import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sergio.sistz.mysql.Conexion;
 import com.example.sergio.sistz.util.toolsfncs;
@@ -45,7 +44,7 @@ public class DailyClassroomEvaluation extends Activity implements AdapterView.On
     String[] _shift = {"Morning","Afternoon","Evening"};
     String[] _level = {"Primary","Secondary","Pre-Primary"};
     private String[] _grade = {"G1","G2","G3","G4","G5","G6","G7","G8"};
-    private String[] _section = {"A","B","C","D","E","F","G"};
+    private String[] _section = {"A","B","C","D","E","F","G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     private String[] _subject_p = {"Mathematics","English","Kiswahili","French","Science","Geography","Civics","History","Vocational skills","Personality and Sports","ICT","Other"};
     String[] _evaluationType = {"Select one","March test","April test","May test","June test","July test","August test","September test","Octuber test","November test","Mid-term1","Mid_term2","Terminal exam","End of year exam"};
     ArrayList<String> list_teacher = new ArrayList<>();
@@ -183,6 +182,10 @@ public class DailyClassroomEvaluation extends Activity implements AdapterView.On
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_vocational_skills)+"' WHERE level=1 and id=14");
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_ict)+"' WHERE level=1 and id=15");
         dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_personality)+"' WHERE level=1 and id=16");
+
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_social_studies)+"' WHERE level=1 and id=17");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_civics_and_moral)+"' WHERE level=1 and id=18");
+        dbSET.execSQL("UPDATE subject SET subject='"+getResources().getString(R.string.str_g_cience_and_technology)+"' WHERE level=1 and id=19");
     }
 
     private void setDateAttendance() {

@@ -381,6 +381,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         //dialogAlert(7);
         new_set_geo_codes();
+        new_subject();
 
         if (!_EMISCODE.toString().equals("")) {
             _buttons();
@@ -1299,6 +1300,30 @@ public class MainActivity extends Activity implements View.OnClickListener {
         };
         t.start();
 
+    }
+
+    // ******* NEW subject ******************
+    public void new_subject() {
+        String cod2031="";
+        Conexion cnSET = new Conexion(this, STATICS_ROOT + File.separator + "sisdb.sqlite", null, 4);
+        SQLiteDatabase dbSET = cnSET.getReadableDatabase();
+        Cursor cur_data = dbSET.rawQuery("SELECT COUNT(*) AS prim FROM subject WHERE level=1", null);
+        cur_data.moveToFirst();
+        if (!cur_data.getString(0).toString().equals("19")) {
+            if (getLang().equals("en")) {
+                dbSET.execSQL("INSERT INTO subject (level, id, subject) VALUES(1,17,\"Social Studies\")");
+                dbSET.execSQL("INSERT INTO subject (level, id, subject) VALUES(1,18,\"Civics and Moral\")");
+                dbSET.execSQL("INSERT INTO subject (level, id, subject) VALUES(1,19,\"Science and Technology\")");
+            } else {
+                dbSET.execSQL("INSERT INTO subject (level, id, subject) VALUES(1,17,\"Masomo ya kijamii\")");
+                dbSET.execSQL("INSERT INTO subject (level, id, subject) VALUES(1,18,\"Jamii na Maadili\")");
+                dbSET.execSQL("INSERT INTO subject (level, id, subject) VALUES(1,19,\"Sayansi na Teknolojia\")");
+            }
+
+        }
+        cnSET.close();
+        dbSET.close();
+        cur_data.close();
     }
 
     public void new_set_geo_codes() {
@@ -2461,7 +2486,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,7,233,'SIMIYU','BARIADI TC','BARIADI')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,7,243,'SIMIYU','BARIADI TC','MALAMBO')");
         dbSET.execSQL("INSERT INTO set_geo_codes(g1, g2, g3, name1, name2, name3) VALUES(24,7,253,'SIMIYU','BARIADI TC','SIMA')");
-
 
         cnSET.close();
         dbSET.close();
