@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="tzColorGrisMenuIcon">#4E4E4E</color>
+    <color name="tzColorGreenDark">#226100</color>
+    <color name="tzColorGreenLight">#D2EBC1</color>
+    <color name="tzColorGrey">#4E4E4E</color>
+    <color name="tzColorWhite">#FFFFFF</color>
+
 </resources>
