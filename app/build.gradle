@@ -29,6 +29,8 @@ dependencies {
     compile 'com.android.support:support-v4:23.2.1'
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'ch.acra:acra:4.9.0'
+    implementation 'com.github.clans:fab:1.6.2'
+
 }
 
 repositories {

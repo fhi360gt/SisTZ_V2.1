@@ -35,10 +35,6 @@
                 android:background="@drawable/menu_logos">
             </ExpandableListView>
         </LinearLayout>
-
-
-
-
     </android.support.design.widget.NavigationView>
 
 
