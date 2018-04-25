@@ -102,6 +102,9 @@ public class main_v3 extends AppCompatActivity implements NavigationView.OnNavig
 
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main_v2);
+
+
+
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
@@ -142,6 +145,7 @@ public class main_v3 extends AppCompatActivity implements NavigationView.OnNavig
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
 
@@ -175,9 +179,13 @@ public class main_v3 extends AppCompatActivity implements NavigationView.OnNavig
         getAlerts();
         showAlerts();
         ll_alerts.setVisibility(View.VISIBLE);
-
+        homeScreen();
     }
 
+    public void homeScreen() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        startActivity(intent);
+    }
 
     private void start_menu () {
 
@@ -237,6 +245,7 @@ public class main_v3 extends AppCompatActivity implements NavigationView.OnNavig
         menuItems.add(new ExpandableItemMenu(R.drawable.icon_daily, getResources().getString(R.string.str_m_tv2)));
         menuItems.add(new ExpandableItemMenu(R.drawable.icon_finance, getResources().getString(R.string.str_m_tv10)));
         menuItems.add(new ExpandableItemMenu(R.drawable.icon_reports, getResources().getString(R.string.str_m_tv3)));
+        menuItems.add(new ExpandableItemMenu(R.drawable.icon_students, getResources().getString(R.string.str_m_tv12)));
         //menuItems.add("Opcion 3");
 
         ArrayList<ExpandableItemMenu> submenu = new ArrayList<ExpandableItemMenu>();
@@ -247,12 +256,12 @@ public class main_v3 extends AppCompatActivity implements NavigationView.OnNavig
 
         submenu = new  ArrayList<ExpandableItemMenu>();
         submenu.add(new ExpandableItemMenu(R.drawable.icon_attendance, getResources().getString(R.string.str_m_tv7)));
-        submenu.add(new ExpandableItemMenu(R.drawable.icon_behaviour, getResources().getString(R.string.str_m_tv8)));
         submenu.add(new ExpandableItemMenu(R.drawable.icon_eval, getResources().getString(R.string.str_m_tv9)));
+        submenu.add(new ExpandableItemMenu(R.drawable.icon_behaviour, getResources().getString(R.string.str_m_tv8)));
         subMenuItems.add(submenu);
 
         submenu = new  ArrayList<ExpandableItemMenu>();
-        submenu.add(new ExpandableItemMenu(R.drawable.icon_finance, getResources().getString(R.string.str_m_tv11)));
+        //submenu.add(new ExpandableItemMenu(R.drawable.icon_finance, getResources().getString(R.string.str_m_tv11)));
         subMenuItems.add(submenu);
 
         submenu = new  ArrayList<ExpandableItemMenu>();
@@ -261,6 +270,9 @@ public class main_v3 extends AppCompatActivity implements NavigationView.OnNavig
         submenu.add(new ExpandableItemMenu(R.drawable.icon_attendance, getResources().getString(R.string.str_m_tv7)));
         subMenuItems.add(submenu);
 
+        submenu = new  ArrayList<ExpandableItemMenu>();
+        //submenu.add(new ExpandableItemMenu(R.drawable.icon_finance, getResources().getString(R.string.str_m_tv11)));
+        subMenuItems.add(submenu);
     }
 
     private void getAlerts() {

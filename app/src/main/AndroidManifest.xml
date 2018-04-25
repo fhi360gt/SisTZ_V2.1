@@ -120,6 +120,10 @@
             android:name=".Language"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HomeScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <service android:name=".service_sms"></service>
         <service android:name=".DownloadService"/>
